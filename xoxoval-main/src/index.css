@@ -1,0 +1,391 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Patrick+Hand&family=Gaegu:wght@300;400;700&family=Gloria+Hallelujah&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Paper & Background */
+    --background: 35 30% 96%;
+    --foreground: 350 25% 25%;
+
+    /* Card - Warm paper */
+    --card: 35 35% 94%;
+    --card-foreground: 350 25% 25%;
+
+    /* Popover */
+    --popover: 35 35% 94%;
+    --popover-foreground: 350 25% 25%;
+
+    /* Primary - Soft rose */
+    --primary: 350 70% 65%;
+    --primary-foreground: 35 30% 98%;
+
+    /* Secondary - Coral blush */
+    --secondary: 15 60% 85%;
+    --secondary-foreground: 350 25% 25%;
+
+    /* Muted - Soft lavender */
+    --muted: 280 20% 90%;
+    --muted-foreground: 280 15% 45%;
+
+    /* Accent - Warm coral */
+    --accent: 10 75% 70%;
+    --accent-foreground: 35 30% 98%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* Borders & Inputs */
+    --border: 350 25% 85%;
+    --input: 350 25% 88%;
+    --ring: 350 70% 65%;
+
+    --radius: 1rem;
+
+    /* Valentine Custom Colors */
+    --heart-red: 350 80% 55%;
+    --heart-pink: 340 65% 70%;
+    --heart-blush: 350 50% 85%;
+    --paper-cream: 35 35% 94%;
+    --paper-warm: 30 40% 92%;
+    --doodle-stroke: 350 30% 40%;
+    --sparkle-gold: 45 90% 60%;
+    --celebration-confetti: 350 75% 60%;
+
+    /* Sidebar (keeping defaults) */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 350 20% 12%;
+    --foreground: 35 30% 95%;
+    --card: 350 20% 15%;
+    --card-foreground: 35 30% 95%;
+    --popover: 350 20% 15%;
+    --popover-foreground: 35 30% 95%;
+    --primary: 350 65% 60%;
+    --primary-foreground: 35 30% 98%;
+    --secondary: 350 30% 25%;
+    --secondary-foreground: 35 30% 95%;
+    --muted: 350 25% 20%;
+    --muted-foreground: 350 20% 60%;
+    --accent: 10 60% 55%;
+    --accent-foreground: 35 30% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 350 25% 25%;
+    --input: 350 25% 25%;
+    --ring: 350 65% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Gloria Hallelujah', 'Gaegu', 'Caveat', cursive;
+  }
+}
+
+@layer utilities {
+  /* Handwritten text styles - more crayon-like */
+  .font-handwritten {
+    font-family: 'Gloria Hallelujah', 'Gaegu', cursive;
+    letter-spacing: 0.02em;
+  }
+
+  .font-crayon {
+    font-family: 'Gaegu', 'Gloria Hallelujah', cursive;
+    letter-spacing: 0.03em;
+    text-shadow: 0.5px 0.5px 0px hsl(var(--doodle-stroke) / 0.3);
+  }
+
+  .font-scribble {
+    font-family: 'Caveat', 'Patrick Hand', cursive;
+    font-weight: 700;
+  }
+
+  /* Paper texture overlay */
+  .paper-texture {
+    background-image: 
+      radial-gradient(ellipse at 20% 30%, hsl(var(--heart-blush) / 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, hsl(var(--secondary) / 0.2) 0%, transparent 50%),
+      radial-gradient(ellipse at 60% 20%, hsl(var(--sparkle-gold) / 0.08) 0%, transparent 40%),
+      linear-gradient(135deg, hsl(var(--paper-cream)) 0%, hsl(var(--paper-warm)) 100%);
+  }
+
+  /* Crumpled paper effect with CSS */
+  .crumpled-paper {
+    background-image: 
+      /* Crinkle shadows */
+      linear-gradient(45deg, transparent 40%, hsl(var(--doodle-stroke) / 0.03) 45%, transparent 50%),
+      linear-gradient(-45deg, transparent 40%, hsl(var(--doodle-stroke) / 0.03) 45%, transparent 50%),
+      linear-gradient(135deg, transparent 30%, hsl(var(--doodle-stroke) / 0.04) 35%, transparent 40%),
+      linear-gradient(-135deg, transparent 30%, hsl(var(--doodle-stroke) / 0.04) 35%, transparent 40%),
+      /* Larger wrinkles */
+      radial-gradient(ellipse at 20% 40%, hsl(var(--doodle-stroke) / 0.02) 0%, transparent 30%),
+      radial-gradient(ellipse at 70% 60%, hsl(var(--doodle-stroke) / 0.02) 0%, transparent 25%),
+      radial-gradient(ellipse at 40% 80%, hsl(var(--doodle-stroke) / 0.015) 0%, transparent 35%),
+      /* Subtle highlights from crumples */
+      radial-gradient(ellipse at 30% 20%, hsl(35 40% 98% / 0.3) 0%, transparent 20%),
+      radial-gradient(ellipse at 80% 30%, hsl(35 40% 98% / 0.25) 0%, transparent 15%),
+      radial-gradient(ellipse at 60% 70%, hsl(35 40% 98% / 0.2) 0%, transparent 25%);
+  }
+
+  /* Paper grain noise */
+  .paper-grain {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    mix-blend-mode: multiply;
+  }
+
+  /* Doodle stroke styling */
+  .doodle-stroke {
+    stroke: hsl(var(--doodle-stroke));
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    fill: none;
+  }
+
+  /* Heart fill */
+  .heart-fill {
+    fill: hsl(var(--heart-red));
+  }
+
+  .heart-fill-pink {
+    fill: hsl(var(--heart-pink));
+  }
+
+  /* Typewriter cursor */
+  .typewriter-cursor::after {
+    content: '|';
+    animation: blink 0.8s infinite;
+    color: hsl(var(--primary));
+    font-weight: 400;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+  }
+
+  /* Wobbly hand-drawn button base */
+  .btn-wobbly {
+    @apply relative transition-all duration-200 ease-out;
+    @apply px-6 py-3 text-xl font-bold;
+    @apply shadow-md;
+    @apply transform;
+    font-family: 'Gaegu', 'Gloria Hallelujah', cursive;
+    border-radius: 40% 60% 55% 45% / 55% 45% 55% 45%;
+    border: 3px solid hsl(var(--doodle-stroke) / 0.6);
+    box-shadow: 
+      3px 3px 0px hsl(var(--doodle-stroke) / 0.3),
+      inset -2px -2px 0px hsl(35 40% 98% / 0.3);
+  }
+
+  .btn-wobbly:hover {
+    box-shadow: 
+      5px 5px 0px hsl(var(--doodle-stroke) / 0.4),
+      inset -2px -2px 0px hsl(35 40% 98% / 0.4);
+  }
+
+  .btn-wobbly:active {
+    box-shadow: 
+      1px 1px 0px hsl(var(--doodle-stroke) / 0.3);
+  }
+
+  /* Yes button special */
+  .btn-yes-wobbly {
+    @apply bg-primary text-primary-foreground;
+    border-radius: 45% 55% 50% 50% / 50% 50% 50% 50%;
+  }
+
+  /* No button - playful and unstable looking */
+  .btn-no-wobbly {
+    @apply bg-muted text-muted-foreground;
+    border-radius: 55% 45% 60% 40% / 40% 60% 40% 60%;
+    border-style: dashed;
+  }
+
+  /* Celebration gradient */
+  .celebration-bg {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--heart-blush)) 0%,
+      hsl(var(--secondary)) 50%,
+      hsl(var(--paper-cream)) 100%
+    );
+  }
+}
+
+/* Custom animations */
+@layer utilities {
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 3s ease-in-out infinite 0.5s;
+  }
+
+  .animate-wiggle {
+    animation: wiggle 2s ease-in-out infinite;
+  }
+
+  .animate-wiggle-intentional {
+    animation: wiggle-intentional 0.8s ease-in-out infinite;
+  }
+
+  .animate-pop {
+    animation: pop 0.3s ease-out;
+  }
+
+  .animate-heartbeat {
+    animation: heartbeat 1.2s ease-in-out infinite;
+  }
+
+  .animate-sparkle {
+    animation: sparkle 1.5s ease-in-out infinite;
+  }
+
+  .animate-confetti {
+    animation: confetti 3s ease-out forwards;
+  }
+
+  .animate-wobble-hover {
+    animation: wobble-hover 0.5s ease-in-out;
+  }
+
+  .animate-spin-bounce {
+    animation: spin-bounce 0.6s ease-in-out;
+  }
+
+  .animate-shrink-shake {
+    animation: shrink-shake 0.4s ease-in-out;
+  }
+
+  .animate-jello {
+    animation: jello 0.9s ease-in-out;
+  }
+
+  .animate-typewriter {
+    overflow: hidden;
+    border-right: 3px solid hsl(var(--primary));
+    white-space: nowrap;
+    animation: typing 3s steps(40) forwards, blink-caret 0.75s step-end infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(2deg); }
+  50% { transform: translateY(-5px) rotate(-1deg); }
+  75% { transform: translateY(-15px) rotate(1deg); }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-3deg); }
+  25% { transform: rotate(3deg); }
+  50% { transform: rotate(-2deg); }
+  75% { transform: rotate(2deg); }
+}
+
+/* Intentional wobble - more personality */
+@keyframes wiggle-intentional {
+  0% { transform: rotate(-2deg) skewX(-1deg); }
+  20% { transform: rotate(3deg) skewX(1deg); }
+  40% { transform: rotate(-3deg) skewX(-0.5deg); }
+  60% { transform: rotate(2deg) skewX(0.5deg); }
+  80% { transform: rotate(-1deg) skewX(-1deg); }
+  100% { transform: rotate(-2deg) skewX(-1deg); }
+}
+
+@keyframes pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  15% { transform: scale(1.15); }
+  30% { transform: scale(1); }
+  45% { transform: scale(1.1); }
+  60% { transform: scale(1); }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0.4; transform: scale(0.8) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1.2) rotate(180deg); }
+}
+
+@keyframes confetti {
+  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+
+@keyframes wobble-hover {
+  0% { transform: rotate(0deg); }
+  15% { transform: rotate(-8deg); }
+  30% { transform: rotate(6deg); }
+  45% { transform: rotate(-4deg); }
+  60% { transform: rotate(3deg); }
+  75% { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes spin-bounce {
+  0% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(90deg) scale(0.9); }
+  50% { transform: rotate(180deg) scale(1.1); }
+  75% { transform: rotate(270deg) scale(0.95); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+@keyframes shrink-shake {
+  0% { transform: scale(1) translateX(0); }
+  25% { transform: scale(0.95) translateX(-5px); }
+  50% { transform: scale(0.9) translateX(5px); }
+  75% { transform: scale(0.85) translateX(-3px); }
+  100% { transform: scale(0.8) translateX(0); }
+}
+
+@keyframes jello {
+  0%, 100% { transform: skewX(0deg) skewY(0deg); }
+  15% { transform: skewX(-10deg) skewY(-3deg); }
+  30% { transform: skewX(8deg) skewY(2deg); }
+  45% { transform: skewX(-6deg) skewY(-1deg); }
+  60% { transform: skewX(4deg) skewY(1deg); }
+  75% { transform: skewX(-2deg) skewY(0deg); }
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: hsl(var(--primary)); }
+}
