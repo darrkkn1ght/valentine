@@ -16,7 +16,7 @@ const Header = () => {
           <img 
             src={dmsLogo} 
             alt="Digital Moment Studio Logo" 
-            className="h-8 w-auto"
+            className="h-12 w-auto"
           />
         </Link>
         
