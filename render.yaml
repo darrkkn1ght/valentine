@@ -1,0 +1,10 @@
+services:
+  - type: static_site
+    name: digital-moment-studio
+    rootDir: digital-moment-studio-main
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    routes:
+      - path: /*
+        destination: /index.html
+        type: rewrite
