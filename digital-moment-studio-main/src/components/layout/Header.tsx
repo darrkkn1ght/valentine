@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
+import dmsLogo from '@/assets/dms-logo.png';
 
 const Header = () => {
   const location = useLocation();
@@ -10,9 +11,13 @@ const Header = () => {
       <nav className="container mx-auto px-6 h-16 flex items-center justify-between">
         <Link 
           to="/" 
-          className="text-lg font-semibold tracking-tight text-foreground hover:text-accent transition-colors"
+          className="flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
-          DMS
+          <img 
+            src={dmsLogo} 
+            alt="Digital Moment Studio Logo" 
+            className="h-8 w-auto"
+          />
         </Link>
         
         <div className="flex items-center gap-8">
