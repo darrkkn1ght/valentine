@@ -3,8 +3,19 @@ import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/layout/PageLayout';
 import { ArrowRight, Heart, Lightbulb, Users } from 'lucide-react';
 import { ScrollReveal } from '@/hooks/use-scroll-animation';
+import { useSEO, addSchemaMarkup, organizationSchema } from '@/hooks/useSEO';
+import { useEffect } from 'react';
 
 const About = () => {
+  useSEO({
+    title: 'About Us - Why Digital Moment Studio Exists',
+    description: 'Learn about Digital Moment Studio\'s mission to create unforgettable moments. We believe how you ask matters just as much as what you ask.',
+    type: 'article'
+  });
+
+  useEffect(() => {
+    addSchemaMarkup(organizationSchema);
+  }, []);
   return (
     <PageLayout>
       {/* Hero */}

@@ -5,9 +5,19 @@ import { Textarea } from '@/components/ui/textarea';
 import PageLayout from '@/components/layout/PageLayout';
 import { Mail, MessageCircle, Clock, ArrowRight } from 'lucide-react';
 import { ScrollReveal } from '@/hooks/use-scroll-animation';
-import { useState } from 'react';
+import { useSEO, addSchemaMarkup, localBusinessSchema } from '@/hooks/useSEO';
+import { useEffect, useState } from 'react';
 
 const Contact = () => {
+  useSEO({
+    title: 'Contact Us - Get Support & Custom Experiences',
+    description: 'Have questions? Contact Digital Moment Studio via WhatsApp, email, or contact form. We respond within 2 hours, 7am-11pm WAT.',
+    type: 'article'
+  });
+
+  useEffect(() => {
+    addSchemaMarkup(localBusinessSchema);
+  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',

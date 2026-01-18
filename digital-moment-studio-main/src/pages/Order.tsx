@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import PageLayout from '@/components/layout/PageLayout';
 import { ArrowRight, Copy, Check, MessageCircle } from 'lucide-react';
+import { useSEO, addSchemaMarkup } from '@/hooks/useSEO';
 import { supabase } from '@/integrations/supabase/client';
 import { 
   createOrder, 
@@ -27,6 +28,17 @@ const Order = () => {
     email: '',
     whatsappNumber: '',
   });
+
+  useSEO({
+    title: 'Order Valentine Ask Experience - ₦8,000',
+    description: 'Order your personalized Valentine digital experience. Fill in your details and complete payment via bank transfer. Delivery within 24 hours.',
+    image: 'https://digitalmoment.studio/valentine-ask-preview.jpg',
+    type: 'product'
+  });
+
+  useEffect(() => {
+    addSchemaMarkup(orderSchema);
+  }, []);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [copied, setCopied] = useState(false);

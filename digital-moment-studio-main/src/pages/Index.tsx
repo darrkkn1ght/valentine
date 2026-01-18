@@ -4,7 +4,8 @@ import { Input } from '@/components/ui/input';
 import PageLayout from '@/components/layout/PageLayout';
 import { ArrowRight, Lock, Clock, Zap, Users, Mail, Gift, Play, Music, Sparkles, Heart, Cake, Briefcase, Star } from 'lucide-react';
 import { ScrollReveal } from '@/hooks/use-scroll-animation';
-import { useState } from 'react';
+import { useSEO, addSchemaMarkup, productSchema, organizationSchema } from '@/hooks/useSEO';
+import { useEffect, useState } from 'react';
 import valentineProduct from '@/assets/valentine-product.jpg';
 import momentHands from '@/assets/moment-hands.jpg';
 import heroBg from '@/assets/hero-bg.jpg';
@@ -13,6 +14,18 @@ import aboutBg from '@/assets/about-bg.jpg';
 const Index = () => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+
+  useSEO({
+    title: 'Ask Them In A Way They\'ll Never Forget',
+    description: 'Create unforgettable digital experiences for Valentine\'s Day with personalized music, animations, and celebration. Order your Valentine Ask experience now - ₦8,000.',
+    image: 'https://digitalmoment.studio/valentine-ask-preview.jpg',
+    type: 'website'
+  });
+
+  useEffect(() => {
+    addSchemaMarkup(organizationSchema);
+    addSchemaMarkup(productSchema);
+  }, []);
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();

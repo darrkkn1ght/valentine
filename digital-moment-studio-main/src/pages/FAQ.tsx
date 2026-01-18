@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/layout/PageLayout';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { ScrollReveal } from '@/hooks/use-scroll-animation';
+import { useSEO, addSchemaMarkup } from '@/hooks/useSEO';
 import { cn } from '@/lib/utils';
 
 interface FAQItem {
@@ -96,6 +97,28 @@ const FAQAccordion = ({ item, index }: { item: FAQItem; index: number }) => {
 };
 
 const FAQ = () => {
+  useSEO({
+    title: 'Frequently Asked Questions - Digital Moment Studio',
+    description: 'Find answers to common questions about our Valentine digital experiences, delivery time, customization, and more.',
+    type: 'article'
+  });
+
+  useEffect(() => {
+    const faqSchema = {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      'mainEntity': faqs.map(faq => ({
+        '@type': 'Question',
+        'name': faq.question,
+        'acceptedAnswer': {
+          '@type': 'Answer',
+          'text': faq.answer
+        }
+      }))
+    };
+    addSchemaMarkup(faqSchema);
+  }, []);
+
   return (
     <PageLayout>
       {/* Hero */}

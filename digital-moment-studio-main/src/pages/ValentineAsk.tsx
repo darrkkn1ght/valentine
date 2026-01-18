@@ -3,14 +3,23 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import PageLayout from '@/components/layout/PageLayout';
 import { ArrowRight, Check } from 'lucide-react';
+import { useSEO, addSchemaMarkup, productSchema } from '@/hooks/useSEO';
 import { detectAndStoreReferral } from '@/lib/referral';
 import { VALENTINE_ASK_PRODUCT, formatCurrency } from '@/lib/order';
 import valentineProduct from '@/assets/valentine-product.jpg';
 import momentHands from '@/assets/moment-hands.jpg';
 
 const ValentineAsk = () => {
+  useSEO({
+    title: 'Valentine Ask Digital Experience - ₦8,000',
+    description: 'Personalized Valentine proposal with music, animations, and celebration. Ask them in a way they\'ll never forget. Order now - delivery within 24 hours.',
+    image: 'https://digitalmoment.studio/valentine-ask-preview.jpg',
+    type: 'product'
+  });
+
   useEffect(() => {
     detectAndStoreReferral();
+    addSchemaMarkup(productSchema);
   }, []);
 
   return (
