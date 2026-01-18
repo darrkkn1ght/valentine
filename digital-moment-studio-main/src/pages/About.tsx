@@ -134,7 +134,7 @@ const About = () => {
               <ScrollReveal animation="fade-up" delay={100}>
                 <div className="border-l-4 border-accent pl-6">
                   <h3 className="font-medium text-lg text-foreground mb-2">
-                    🎨 Quality Over Speed
+                    Quality Over Speed
                   </h3>
                   <p className="text-muted-foreground">
                     We take time to create beautiful, personalized experiences. This is about meaning, not mass production.
@@ -145,7 +145,7 @@ const About = () => {
               <ScrollReveal animation="fade-up" delay={200}>
                 <div className="border-l-4 border-accent pl-6">
                   <h3 className="font-medium text-lg text-foreground mb-2">
-                    ❤️ Your Story Matters
+                    Your Story Matters
                   </h3>
                   <p className="text-muted-foreground">
                     We don't use templates. Every experience is built around your unique story and relationship.
@@ -156,7 +156,7 @@ const About = () => {
               <ScrollReveal animation="fade-up" delay={300}>
                 <div className="border-l-4 border-accent pl-6">
                   <h3 className="font-medium text-lg text-foreground mb-2">
-                    🤝 Personal Connection
+                    Personal Connection
                   </h3>
                   <p className="text-muted-foreground">
                     We're here to help. From order to delivery, you get real support from real people who care.
@@ -167,7 +167,7 @@ const About = () => {
               <ScrollReveal animation="fade-up" delay={400}>
                 <div className="border-l-4 border-accent pl-6">
                   <h3 className="font-medium text-lg text-foreground mb-2">
-                    ✨ Make It Special
+                    Make It Special
                   </h3>
                   <p className="text-muted-foreground">
                     We sweat the details. Animation timing, music selection, message placement—everything works together to create magic.

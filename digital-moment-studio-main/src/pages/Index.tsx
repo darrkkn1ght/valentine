@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import PageLayout from '@/components/layout/PageLayout';
-import { ArrowRight, Lock, Clock, Zap, Users, Mail, Gift, Play } from 'lucide-react';
+import { ArrowRight, Lock, Clock, Zap, Users, Mail, Gift, Play, Music, Sparkles } from 'lucide-react';
 import { ScrollReveal } from '@/hooks/use-scroll-animation';
 import { useState } from 'react';
 import valentineProduct from '@/assets/valentine-product.jpg';
@@ -162,19 +162,19 @@ const Index = () => {
               <ScrollReveal animation="fade-right">
                 <div className="space-y-4">
                   <div className="p-4 bg-background rounded border border-border">
-                    <p className="font-medium text-foreground mb-1">💍 Engagement</p>
+                    <p className="font-medium text-foreground mb-1">Engagement</p>
                     <p className="text-xs text-muted-foreground">Personalized proposal experience</p>
                   </div>
                   <div className="p-4 bg-background rounded border border-border">
-                    <p className="font-medium text-foreground mb-1">🎂 Birthday</p>
+                    <p className="font-medium text-foreground mb-1">Birthday</p>
                     <p className="text-xs text-muted-foreground">Special celebration moments</p>
                   </div>
                   <div className="p-4 bg-background rounded border border-border">
-                    <p className="font-medium text-foreground mb-1">💼 Business</p>
+                    <p className="font-medium text-foreground mb-1">Business</p>
                     <p className="text-xs text-muted-foreground">Corporate announcements & launches</p>
                   </div>
                   <div className="p-4 bg-background rounded border border-border">
-                    <p className="font-medium text-foreground mb-1">🎯 Custom</p>
+                    <p className="font-medium text-foreground mb-1">Custom</p>
                     <p className="text-xs text-muted-foreground">Any milestone or moment that matters</p>
                   </div>
                 </div>
@@ -293,7 +293,7 @@ const Index = () => {
               <div className="space-y-6">
                 <div>
                   <h3 className="font-medium text-foreground mb-2 flex items-center gap-2">
-                    <span className="text-xl">🎵</span> Personalized Music
+                    <Music className="w-4 h-4 text-accent" /> Personalized Music
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     Beautiful background music sets the mood from the moment they open the link
@@ -302,7 +302,7 @@ const Index = () => {
                 
                 <div>
                   <h3 className="font-medium text-foreground mb-2 flex items-center gap-2">
-                    <span className="text-xl">✨</span> Stunning Animations
+                    <Sparkles className="w-4 h-4 text-accent" /> Stunning Animations
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     Smooth transitions, floating elements, and engaging visual effects throughout
@@ -311,7 +311,7 @@ const Index = () => {
                 
                 <div>
                   <h3 className="font-medium text-foreground mb-2 flex items-center gap-2">
-                    <span className="text-xl">💌</span> Your Message
+                    <Mail className="w-4 h-4 text-accent" /> Your Message
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     A personalized letter that appears with dramatic typing effect
@@ -320,7 +320,7 @@ const Index = () => {
 
                 <div>
                   <h3 className="font-medium text-foreground mb-2 flex items-center gap-2">
-                    <span className="text-xl">🎉</span> Celebration Moment
+                    <Sparkles className="w-4 h-4 text-accent" /> Celebration Moment
                   </h3>
                   <p className="text-sm text-muted-foreground">
                     Confetti, heart animations, and their names featured beautifully

@@ -59,7 +59,7 @@ const Contact = () => {
             <ScrollReveal animation="fade-up" delay={300}>
               <div className="mt-8 p-4 bg-accent/10 border border-accent/30 rounded inline-block">
                 <p className="text-sm text-accent font-medium">
-                  💡 Have a custom idea? Tell us about it in the form below—birthdays, proposals, business launches, anything!
+                  Have a custom idea? Tell us about it in the form below—birthdays, proposals, business launches, anything!
                 </p>
               </div>
             </ScrollReveal>
