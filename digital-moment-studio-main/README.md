@@ -1,4 +1,4 @@
-# Welcome to your project
+# Welcome to Digital Moment Studio
 
 ## Project info
 
