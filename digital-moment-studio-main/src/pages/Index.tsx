@@ -362,7 +362,7 @@ const Index = () => {
               },
               {
                 name: "David & Zainab",
-                text: "Honestly didn't know this existed but I'm so glad we found it. The animations, the music, her name throughout—it felt like it was made just for her. Best ₦8,000 I've ever spent. Highly recommend!"",
+                text: "Honestly didn't know this existed but I'm so glad we found it. The animations, the music, her name throughout—it felt like it was made just for her. Best ₦8,000 I've ever spent. Highly recommend!",
                 rating: 5
               }
             ].map((testimonial, index) => (
