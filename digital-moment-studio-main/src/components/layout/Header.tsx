@@ -1,10 +1,26 @@
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import dmsLogo from '@/assets/dms-logo.png';
+import dmsLogoDark from '@/assets/dms-logo-dark.png';
+import { useState, useEffect } from 'react';
 
 const Header = () => {
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    const isDarkMode = document.documentElement.classList.contains('dark');
+    setIsDark(isDarkMode);
+
+    // Listen for theme changes
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -14,9 +30,9 @@ const Header = () => {
           className="flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
           <img 
-            src={dmsLogo} 
+            src={isDark ? dmsLogoDark : dmsLogo} 
             alt="Digital Moment Studio Logo" 
-            className="h-12 w-auto"
+            className="h-14 w-auto"
           />
         </Link>
         

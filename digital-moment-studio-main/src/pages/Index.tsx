@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import PageLayout from '@/components/layout/PageLayout';
-import { ArrowRight, Lock, Clock, Zap, Users, Mail, Gift, Play, Music, Sparkles } from 'lucide-react';
+import { ArrowRight, Lock, Clock, Zap, Users, Mail, Gift, Play, Music, Sparkles, Heart, Cake, Briefcase, Star } from 'lucide-react';
 import { ScrollReveal } from '@/hooks/use-scroll-animation';
 import { useState } from 'react';
 import valentineProduct from '@/assets/valentine-product.jpg';
@@ -47,7 +47,7 @@ const Index = () => {
             
             <ScrollReveal animation="fade-up" delay={100}>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] mb-6">
-                Transform Your Most Important Question Into An Unforgettable Moment
+                Ask Them In A Way
                 <br />
                 <span className="text-accent-gradient">They'll Never Forget</span>
               </h1>
@@ -55,7 +55,7 @@ const Index = () => {
             
             <ScrollReveal animation="fade-up" delay={200}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg mb-10">
-                Skip the ordinary. Create a personalized digital experience that will leave them speechless when you ask them to be your Valentine. With music, animations, and your personal message—delivered beautifully.
+                A personalized digital experience with music, animations, and your message. Delivered in 24 hours.
               </p>
             </ScrollReveal>
             
@@ -77,7 +77,7 @@ const Index = () => {
             
             <ScrollReveal animation="fade-up" delay={400}>
               <p className="text-xs text-muted-foreground mt-8">
-                ⏰ Limited Stock | ✓ 24-Hour Delivery | 🔒 Personalized to Your Story
+                ✓ 24-Hour Delivery | ✓ Fully Personalized | ✓ 24/7 Support
               </p>
             </ScrollReveal>
           </div>
@@ -145,10 +145,10 @@ const Index = () => {
                     We Do Custom Experiences
                   </h3>
                   <p className="text-muted-foreground mb-6 leading-relaxed">
-                    Birthday proposals? Engagement asks? Business announcements? We create personalized digital experiences for any special moment.
+                    Birthdays, proposals, business launches—we customize for any moment.
                   </p>
                   <p className="text-sm text-muted-foreground mb-6">
-                    Tell us your idea and we'll craft something unique for you.
+                    Tell us your idea.
                   </p>
                   <Button variant="outline" size="lg" asChild>
                     <Link to="/contact">
@@ -161,21 +161,33 @@ const Index = () => {
 
               <ScrollReveal animation="fade-right">
                 <div className="space-y-4">
-                  <div className="p-4 bg-background rounded border border-border">
-                    <p className="font-medium text-foreground mb-1">Engagement</p>
-                    <p className="text-xs text-muted-foreground">Personalized proposal experience</p>
+                  <div className="p-4 bg-background rounded border border-border flex items-start gap-3">
+                    <Heart className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-medium text-foreground mb-1">Engagement</p>
+                      <p className="text-xs text-muted-foreground">Personalized proposal experience</p>
+                    </div>
                   </div>
-                  <div className="p-4 bg-background rounded border border-border">
-                    <p className="font-medium text-foreground mb-1">Birthday</p>
-                    <p className="text-xs text-muted-foreground">Special celebration moments</p>
+                  <div className="p-4 bg-background rounded border border-border flex items-start gap-3">
+                    <Cake className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-medium text-foreground mb-1">Birthday</p>
+                      <p className="text-xs text-muted-foreground">Special celebration moments</p>
+                    </div>
                   </div>
-                  <div className="p-4 bg-background rounded border border-border">
-                    <p className="font-medium text-foreground mb-1">Business</p>
-                    <p className="text-xs text-muted-foreground">Corporate announcements & launches</p>
+                  <div className="p-4 bg-background rounded border border-border flex items-start gap-3">
+                    <Briefcase className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-medium text-foreground mb-1">Business</p>
+                      <p className="text-xs text-muted-foreground">Corporate announcements & launches</p>
+                    </div>
                   </div>
-                  <div className="p-4 bg-background rounded border border-border">
-                    <p className="font-medium text-foreground mb-1">Custom</p>
-                    <p className="text-xs text-muted-foreground">Any milestone or moment that matters</p>
+                  <div className="p-4 bg-background rounded border border-border flex items-start gap-3">
+                    <Star className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-medium text-foreground mb-1">Custom</p>
+                      <p className="text-xs text-muted-foreground">Any milestone or moment that matters</p>
+                    </div>
                   </div>
                 </div>
               </ScrollReveal>
@@ -201,7 +213,7 @@ const Index = () => {
               </ScrollReveal>
               <ScrollReveal animation="fade-up" delay={200}>
                 <p className="text-muted-foreground mb-6 leading-relaxed">
-                  Forget generic templates. We craft personalized digital experiences that turn ordinary moments into extraordinary memories. Your story deserves more than a simple text or call.
+                  Personalized, beautifully designed, delivered in 24 hours. Made with real care.
                 </p>
               </ScrollReveal>
               
@@ -212,28 +224,28 @@ const Index = () => {
                     <span className="text-accent text-xl font-bold">✓</span>
                     <div>
                       <p className="font-medium text-foreground">Fully Personalized</p>
-                      <p className="text-sm text-muted-foreground">Your names, your story, your message</p>
+                      <p className="text-sm text-muted-foreground">Your story, your names</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
                     <span className="text-accent text-xl font-bold">✓</span>
                     <div>
-                      <p className="font-medium text-foreground">Beautiful & Interactive</p>
-                      <p className="text-sm text-muted-foreground">Music, animations, and effects they'll love</p>
+                      <p className="font-medium text-foreground">Beautiful Design</p>
+                      <p className="text-sm text-muted-foreground">Music, animations, effects</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
                     <span className="text-accent text-xl font-bold">✓</span>
                     <div>
                       <p className="font-medium text-foreground">Easy to Share</p>
-                      <p className="text-sm text-muted-foreground">Send via link or QR code—works on any device</p>
+                      <p className="text-sm text-muted-foreground">Link or QR code</p>
                     </div>
                   </div>
                   <div className="flex gap-3">
                     <span className="text-accent text-xl font-bold">✓</span>
                     <div>
-                      <p className="font-medium text-foreground">24-Hour Delivery</p>
-                      <p className="text-sm text-muted-foreground">Get your personalized link fast</p>
+                      <p className="font-medium text-foreground">Fast Delivery</p>
+                      <p className="text-sm text-muted-foreground">Within 24 hours</p>
                     </div>
                   </div>
                 </div>
@@ -269,7 +281,7 @@ const Index = () => {
             </ScrollReveal>
             <ScrollReveal animation="fade-up" delay={200}>
               <p className="text-muted-foreground text-lg">
-                Watch how a personalized Digital Moment Studio experience captivates and delights
+                See what they'll experience
               </p>
             </ScrollReveal>
           </div>
@@ -415,7 +427,7 @@ const Index = () => {
               </ScrollReveal>
               <ScrollReveal animation="fade-up" delay={200}>
                 <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
-                  A guided digital experience designed to help you ask an important question in a meaningful way. Refined, personal, and delivered directly to your recipient.
+                  Personalized, animated experience with music and your message. Ready in 24 hours.
                 </p>
               </ScrollReveal>
               
