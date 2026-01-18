@@ -10,7 +10,7 @@ interface AdminAuthContextType {
 const AdminAuthContext = createContext<AdminAuthContextType | undefined>(undefined);
 
 // Simple password-based admin auth (no user registration needed)
-const ADMIN_PASSWORD = 'A12d3f4g5h6!@#';
+const ADMIN_PASSWORD = 'admin123dms';
 const AUTH_STORAGE_KEY = 'dms_admin_auth';
 const AUTH_EXPIRY_HOURS = 24;
 

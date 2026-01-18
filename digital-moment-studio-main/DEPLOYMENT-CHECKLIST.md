@@ -113,7 +113,7 @@ Targets:
 
 ### 7. Admin System ✅
 - [x] Admin login page at /admin/login
-- [x] Password authentication (A12d3f4g5h6!@#)
+- [x] Password authentication (admin123dms)
 - [x] 24-hour session persistence
 - [x] Admin dashboard at /admin
 - [x] Order list display
@@ -276,7 +276,7 @@ Weekly:
 
 ### Admin Login
 - **URL**: https://digitalmoment.studio/admin/login
-- **Password**: `A12d3f4g5h6!@#`
+- **Password**: `admin123dms`
 - **Session**: 24 hours
 
 ### Bank Details (for orders)

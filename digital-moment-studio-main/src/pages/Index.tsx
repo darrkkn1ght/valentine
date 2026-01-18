@@ -18,7 +18,7 @@ const Index = () => {
   useSEO({
     title: 'Ask Them In A Way They\'ll Never Forget',
     description: 'Create unforgettable digital experiences for Valentine\'s Day with personalized music, animations, and celebration. Order your Valentine Ask experience now - ₦8,000.',
-    image: 'https://digitalmoment.studio/valentine-ask-preview.jpg',
+    image: 'https://digital-moment-studio.onrender.com/valentine-ask-preview.jpg',
     type: 'website'
   });
 

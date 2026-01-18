@@ -21,10 +21,10 @@ export const useSEO = (config: SEOConfig) => {
       'og:description': config.description,
       'og:type': config.type || 'website',
       'og:url': config.url || window.location.href,
-      'og:image': config.image || 'https://digitalmoment.studio/valentine-ask-preview.jpg',
+      'og:image': config.image || 'https://digital-moment-studio.onrender.com/valentine-ask-preview.jpg',
       'twitter:title': config.title,
       'twitter:description': config.description,
-      'twitter:image': config.image || 'https://digitalmoment.studio/valentine-ask-preview.jpg',
+      'twitter:image': config.image || 'https://digital-moment-studio.onrender.com/valentine-ask-preview.jpg',
     };
 
     Object.entries(metaTags).forEach(([name, content]) => {
@@ -67,8 +67,8 @@ export const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   'name': 'Digital Moment Studio',
-  'url': 'https://digitalmoment.studio',
-  'logo': 'https://digitalmoment.studio/dms-logo.png',
+  'url': 'https://digital-moment-studio.onrender.com',
+  'logo': 'https://digital-moment-studio.onrender.com/dms-logo.png',
   'description': 'Create unforgettable digital experiences for Valentine\'s Day with personalized interactive moments',
   'sameAs': [
     'https://instagram.com/digitalmoment',
@@ -88,7 +88,7 @@ export const productSchema = {
   '@type': 'Product',
   'name': 'Valentine Ask Digital Experience',
   'description': 'Personalized digital experience with music, animations, and celebration for Valentine\'s Day proposals',
-  'image': 'https://digitalmoment.studio/valentine-ask-preview.jpg',
+  'image': 'https://digital-moment-studio.onrender.com/valentine-ask-preview.jpg',
   'brand': {
     '@type': 'Brand',
     'name': 'Digital Moment Studio'
@@ -98,7 +98,7 @@ export const productSchema = {
     'price': '8000',
     'priceCurrency': 'NGN',
     'availability': 'https://schema.org/InStock',
-    'url': 'https://digitalmoment.studio/order'
+    'url': 'https://digital-moment-studio.onrender.com/order'
   },
   'aggregateRating': {
     '@type': 'AggregateRating',
@@ -112,7 +112,7 @@ export const localBusinessSchema = {
   '@type': 'LocalBusiness',
   'name': 'Digital Moment Studio',
   'description': 'Digital experience creation and personalized Valentine\'s Day moments',
-  'url': 'https://digitalmoment.studio',
+  'url': 'https://digital-moment-studio.onrender.com',
   'address': {
     '@type': 'PostalAddress',
     'addressCountry': 'NG',

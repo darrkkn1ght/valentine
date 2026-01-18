@@ -13,7 +13,7 @@ const ValentineAsk = () => {
   useSEO({
     title: 'Valentine Ask Digital Experience - ₦8,000',
     description: 'Personalized Valentine proposal with music, animations, and celebration. Ask them in a way they\'ll never forget. Order now - delivery within 24 hours.',
-    image: 'https://digitalmoment.studio/valentine-ask-preview.jpg',
+    image: 'https://digital-moment-studio.onrender.com/valentine-ask-preview.jpg',
     type: 'product'
   });
 

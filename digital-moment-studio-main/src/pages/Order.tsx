@@ -32,7 +32,7 @@ const Order = () => {
   useSEO({
     title: 'Order Valentine Ask Experience - ₦8,000',
     description: 'Order your personalized Valentine digital experience. Fill in your details and complete payment via bank transfer. Delivery within 24 hours.',
-    image: 'https://digitalmoment.studio/valentine-ask-preview.jpg',
+    image: 'https://digital-moment-studio.onrender.com/valentine-ask-preview.jpg',
     type: 'product'
   });
 
