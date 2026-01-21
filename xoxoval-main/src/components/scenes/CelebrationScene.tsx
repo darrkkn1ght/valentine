@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import canvasConfetti from "canvas-confetti";
 import { Confetti } from "../Confetti";
 import { TypewriterText } from "../TypewriterText";
 import { HeartDoodle } from "../doodles/HeartDoodle";
@@ -16,6 +17,14 @@ export const CelebrationScene = ({ recipientName, senderName }: CelebrationScene
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
+    // Trigger canvas confetti immediately
+    canvasConfetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#FF69B4', '#FFB6C1', '#FFC0CB', '#FF1493', '#DB7093']
+    });
+
     const timer = setTimeout(() => {
       setShowContent(true);
     }, 500);
@@ -63,7 +72,7 @@ export const CelebrationScene = ({ recipientName, senderName }: CelebrationScene
             <HeartDoodle size={30 + i * 5} variant="filled" animate={false} />
           </motion.div>
         ))}
-        
+
         {[...Array(5)].map((_, i) => (
           <motion.div
             key={`star-${i}`}
@@ -112,7 +121,7 @@ export const CelebrationScene = ({ recipientName, senderName }: CelebrationScene
           {/* Big animated heart */}
           <motion.div
             className="mb-8"
-            animate={{ 
+            animate={{
               scale: [1, 1.2, 1],
               rotate: [0, 5, -5, 0]
             }}
@@ -127,7 +136,7 @@ export const CelebrationScene = ({ recipientName, senderName }: CelebrationScene
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <TypewriterText 
+            <TypewriterText
               text="YAAAY! 🎉"
               speed={100}
             />

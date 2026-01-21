@@ -34,9 +34,9 @@ export const AskScene = ({ recipientName, onYes }: AskSceneProps) => {
       onYes();
       return;
     }
-    
+
     setNoCount(prev => prev + 1);
-    
+
     // Start evading after 2 clicks
     if (noCount >= 2) {
       setIsEvading(true);
@@ -66,7 +66,7 @@ export const AskScene = ({ recipientName, onYes }: AskSceneProps) => {
                 top: `${10 + (i % 5) * 18}%`
               }}
               initial={{ opacity: 0, scale: 0 }}
-              animate={{ 
+              animate={{
                 opacity: 0.3 + (noCount * 0.04),
                 scale: 1,
                 y: [0, -20, 0],
@@ -78,9 +78,9 @@ export const AskScene = ({ recipientName, onYes }: AskSceneProps) => {
                 delay: i * 0.15
               }}
             >
-              <HeartDoodle 
-                size={18 + (noCount * 2) + (i % 3) * 4} 
-                variant={i % 3 === 0 ? "filled" : i % 3 === 1 ? "outline" : "double"} 
+              <HeartDoodle
+                size={18 + (noCount * 2) + (i % 3) * 4}
+                variant={i % 3 === 0 ? "filled" : i % 3 === 1 ? "outline" : "double"}
                 animate={false}
               />
             </motion.div>
@@ -95,7 +95,7 @@ export const AskScene = ({ recipientName, onYes }: AskSceneProps) => {
           {/* Big pulsing heart */}
           <motion.div
             className="mb-8 inline-block"
-            animate={{ 
+            animate={{
               scale: [1, 1.1, 1],
               rotate: [0, 3, -3, 0],
             }}
@@ -113,7 +113,7 @@ export const AskScene = ({ recipientName, onYes }: AskSceneProps) => {
             onAnimationComplete={() => setShowQuestion(true)}
           >
             {showQuestion ? (
-              <TypewriterText 
+              <TypewriterText
                 text={`${recipientName}, will you be my Valentine?`}
                 speed={60}
               />
@@ -140,7 +140,7 @@ export const AskScene = ({ recipientName, onYes }: AskSceneProps) => {
           {/* Buttons - intentionally misaligned for hand-drawn feel */}
           <motion.div
             className="flex flex-col sm:flex-row gap-4 items-center justify-center mt-8"
-            style={{ 
+            style={{
               gap: `${16 + noCount * 8}px`,
             }}
             initial={{ opacity: 0, y: 20 }}
@@ -149,11 +149,11 @@ export const AskScene = ({ recipientName, onYes }: AskSceneProps) => {
           >
             {/* Yes button - grows and wobbles invitingly */}
             <motion.div
-              animate={{ 
+              animate={{
                 scale: yesButtonScale,
                 rotate: [0, 2, -2, 1, -1, 0],
               }}
-              transition={{ 
+              transition={{
                 scale: { type: "spring", stiffness: 200 },
                 rotate: { duration: 2, repeat: Infinity }
               }}
@@ -167,13 +167,31 @@ export const AskScene = ({ recipientName, onYes }: AskSceneProps) => {
               </ValentineButton>
             </motion.div>
 
-            {/* No button - shrinks, spins, runs away, eventually becomes yes */}
+            {/* No button - Runaway logic (Mobile Friendly) */}
             <motion.div
               animate={{
                 rotate: noCount > 3 ? [0, 5, -5, 3, -3, 0] : 0,
                 opacity: Math.max(0.4, 1 - noCount * 0.06),
               }}
-              transition={{ 
+              whileHover={{
+                x: [0, Math.random() * 200 - 100],
+                y: [0, Math.random() * 200 - 100],
+                transition: { duration: 0.2 }
+              }}
+              onMouseEnter={(e) => {
+                const target = e.currentTarget;
+                const x = (Math.random() - 0.5) * 300;
+                const y = (Math.random() - 0.5) * 300;
+                target.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random() * 20 - 10}deg)`;
+              }}
+              onTouchStart={(e) => {
+                // Mobile runaway fallback
+                const target = e.currentTarget;
+                const x = (Math.random() - 0.5) * 200;
+                const y = (Math.random() - 0.5) * 200;
+                target.style.transform = `translate(${x}px, ${y}px)`;
+              }}
+              transition={{
                 rotate: { duration: 0.5, repeat: noCount > 3 ? Infinity : 0 }
               }}
               style={{
@@ -181,8 +199,8 @@ export const AskScene = ({ recipientName, onYes }: AskSceneProps) => {
                 marginLeft: noCount > 3 ? `-${noCount * 3}px` : 0,
               }}
             >
-              <ValentineButton 
-                variant="no" 
+              <ValentineButton
+                variant="no"
                 onClick={handleNo}
                 isEvading={isEvading}
                 noCount={noCount}
