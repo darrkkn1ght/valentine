@@ -26,15 +26,15 @@ export const AskScene = ({ recipientName, senderName, onYes, onNo }: AskScenePro
       <PaperBackground>
         <section className="scene">
           <FloatingDoodles density="heavy" />
-          
+
           <div className="relative z-10 text-center max-w-2xl mx-auto px-4">
             {/* Big Hearts */}
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
-              transition={{ 
-                delay: 0.3, 
-                duration: 0.8, 
+              transition={{
+                delay: 0.3,
+                duration: 0.8,
                 type: "spring",
                 stiffness: 100
               }}
@@ -58,18 +58,18 @@ export const AskScene = ({ recipientName, senderName, onYes, onNo }: AskScenePro
               transition={{ delay: 0.6, duration: 0.6 }}
               className="mb-16"
             >
-              <h2 
+              <h2
                 className="text-4xl md:text-6xl lg:text-7xl font-handwritten text-love-gradient leading-tight mb-4 crayon-text"
                 style={{ transform: "rotate(-1deg)" }}
               >
-                <Typewriter 
+                <Typewriter
                   text={`${recipientName}, will you be my Valentine?`}
                   speed={75}
                   delay={800}
                   onComplete={() => setQuestionRevealed(true)}
                 />
               </h2>
-              
+
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: questionRevealed ? 1 : 0 }}
@@ -84,9 +84,9 @@ export const AskScene = ({ recipientName, senderName, onYes, onNo }: AskScenePro
             {/* Buttons - Organic freestyle layout */}
             <motion.div
               initial={{ y: 30, opacity: 0 }}
-              animate={{ 
-                y: questionRevealed ? 0 : 30, 
-                opacity: questionRevealed ? 1 : 0 
+              animate={{
+                y: questionRevealed ? 0 : 30,
+                opacity: questionRevealed ? 1 : 0
               }}
               transition={{ delay: 0.5, duration: 0.5, type: "spring" }}
               className="relative flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-12"
@@ -101,11 +101,25 @@ export const AskScene = ({ recipientName, senderName, onYes, onNo }: AskScenePro
                   Yes! 💖
                 </ValentineButton>
               </motion.div>
-              
-              {/* No button - opposite rotation, different rhythm */}
+
+              {/* No button - Runaway logic */}
               <motion.div
                 style={{ transform: "rotate(2deg) translateY(10px)" }}
-                animate={{ y: [0, 3, 0] }}
+                animate={{
+                  y: [0, 3, 0],
+                  x: [0, 2, 0]
+                }}
+                whileHover={{
+                  x: [0, Math.random() * 200 - 100],
+                  y: [0, Math.random() * 200 - 100],
+                  transition: { duration: 0.2 }
+                }}
+                onMouseEnter={(e) => {
+                  const target = e.currentTarget;
+                  const x = (Math.random() - 0.5) * 300;
+                  const y = (Math.random() - 0.5) * 300;
+                  target.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random() * 20 - 10}deg)`;
+                }}
                 transition={{ repeat: Infinity, duration: 2.5, ease: "easeInOut", delay: 0.5 }}
               >
                 <ValentineButton variant="no" onClick={onNo}>

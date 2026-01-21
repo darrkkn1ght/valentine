@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 
+import MusicPlayer from "./components/MusicPlayer";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -13,6 +15,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
+      <MusicPlayer />
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />

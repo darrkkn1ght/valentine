@@ -1,15 +1,20 @@
 import { ValentineApp } from "@/components/valentine/ValentineApp";
 
+// CLIENT CONFIGURATION - EDIT THIS FOR EACH NEW ORDER
+const CLIENT_CONFIG = {
+  recipientName: "My Love",
+  senderName: "Your Secret Admirer"
+};
+
 const Index = () => {
-  // These can be customized via URL params or a personalization form
-  const recipientName = "My Love";
-  const senderName = "Your Secret Admirer";
+  // Use config values
+  const { recipientName, senderName } = CLIENT_CONFIG;
 
   return (
     <main className="min-h-screen">
-      <ValentineApp 
-        recipientName={recipientName} 
-        senderName={senderName} 
+      <ValentineApp
+        recipientName={recipientName}
+        senderName={senderName}
       />
     </main>
   );

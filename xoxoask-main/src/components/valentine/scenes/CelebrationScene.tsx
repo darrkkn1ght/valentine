@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import canvasConfetti from "canvas-confetti";
 import { Confetti } from "@/components/effects/Confetti";
 import { HeartDoodle } from "@/components/doodles/HeartDoodle";
 import { SparkleDoodle } from "@/components/doodles/SparkleDoodle";
@@ -18,6 +19,12 @@ export const CelebrationScene = ({ recipientName, senderName }: CelebrationScene
   useEffect(() => {
     // Trigger confetti immediately
     setShowConfetti(true);
+    canvasConfetti({
+      particleCount: 150,
+      spread: 70,
+      origin: { y: 0.6 },
+      colors: ['#FF69B4', '#FFB6C1', '#FFC0CB', '#FF1493', '#DB7093']
+    });
 
     // Show message after a short delay
     const messageTimer = setTimeout(() => {
@@ -44,24 +51,24 @@ export const CelebrationScene = ({ recipientName, senderName }: CelebrationScene
       <PaperBackground variant="celebration">
         <section className="scene overflow-hidden">
           <Confetti isActive={showConfetti} pieceCount={80} />
-          
+
           {/* Floating decorations */}
           <div className="absolute inset-0 pointer-events-none">
             {[...Array(12)].map((_, i) => (
               <motion.div
                 key={i}
-                initial={{ 
-                  y: "100vh", 
+                initial={{
+                  y: "100vh",
                   x: `${10 + Math.random() * 80}vw`,
                   opacity: 0,
-                  scale: 0 
+                  scale: 0
                 }}
-                animate={{ 
+                animate={{
                   y: "-10vh",
                   opacity: [0, 1, 1, 0],
                   scale: [0, 1, 1, 0.5]
                 }}
-                transition={{ 
+                transition={{
                   duration: 8 + Math.random() * 4,
                   delay: i * 0.3,
                   repeat: Infinity,
@@ -85,7 +92,7 @@ export const CelebrationScene = ({ recipientName, senderName }: CelebrationScene
             <motion.div
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
-              transition={{ 
+              transition={{
                 type: "spring",
                 stiffness: 100,
                 damping: 10,
@@ -116,7 +123,7 @@ export const CelebrationScene = ({ recipientName, senderName }: CelebrationScene
                 >
                   Yay! 🎉
                 </motion.h1>
-                
+
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
