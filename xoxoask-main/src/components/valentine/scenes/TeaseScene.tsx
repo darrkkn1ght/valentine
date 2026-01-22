@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FloatingDoodles } from "@/components/doodles/FloatingDoodles";
 import { ArrowDoodle } from "@/components/doodles/ArrowDoodle";
 import { PaperBackground } from "@/components/effects/PaperBackground";
+import { HeartDoodle } from "@/components/doodles/HeartDoodle";
 
 interface TeaseSceneProps {
   onContinue: () => void;
@@ -24,12 +25,12 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
     if (currentText < teaseTexts.length - 1) {
       const timer = setTimeout(() => {
         setCurrentText(prev => prev + 1);
-      }, 1800);
+      }, 3000); // Slower reading time (3s)
       return () => clearTimeout(timer);
     } else {
       const timer = setTimeout(() => {
         setShowArrow(true);
-      }, 1500);
+      }, 2000);
       return () => clearTimeout(timer);
     }
   }, [currentText]);
@@ -39,12 +40,12 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, y: -50 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 1 }}
     >
       <PaperBackground>
         <section className="scene">
           <FloatingDoodles density="light" />
-          
+
           <div className="relative z-10 text-center max-w-xl mx-auto px-4">
             {/* Animated Text */}
             <div className="min-h-[150px] flex items-center justify-center">
@@ -54,10 +55,10 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
                   initial={{ opacity: 0, y: 30, rotateX: -20 }}
                   animate={{ opacity: 1, y: 0, rotateX: 0 }}
                   exit={{ opacity: 0, y: -30, rotateX: 20 }}
-                  transition={{ 
-                    duration: 0.5,
+                  transition={{
+                    duration: 1, // Slower fade
                     type: "spring",
-                    stiffness: 100
+                    stiffness: 50 // Softer spring
                   }}
                   className="text-3xl md:text-5xl font-handwritten text-foreground crayon-text"
                   style={{ transform: `rotate(${(currentText % 2 === 0 ? -2 : 2)}deg)` }}
@@ -77,12 +78,12 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
                 {[0, 1, 2].map((i) => (
                   <motion.span
                     key={i}
-                    animate={{ 
+                    animate={{
                       opacity: [0.3, 1, 0.3],
                       scale: [0.8, 1.2, 0.8]
                     }}
-                    transition={{ 
-                      repeat: Infinity, 
+                    transition={{
+                      repeat: Infinity,
                       duration: 1.2,
                       delay: i * 0.2
                     }}
@@ -107,7 +108,7 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
                   >
                     <ArrowDoodle direction="down" size={50} />
                   </motion.div>
-                  
+
                   <motion.button
                     initial={{ scale: 0.8 }}
                     animate={{ scale: 1 }}
@@ -122,7 +123,8 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
                       transform: "rotate(-2deg)",
                     }}
                   >
-                    Reveal the question 💝
+                    Reveal the question
+                    <HeartDoodle size={24} className="text-white fill-white inline-block ml-2" />
                   </motion.button>
                 </motion.div>
               )}

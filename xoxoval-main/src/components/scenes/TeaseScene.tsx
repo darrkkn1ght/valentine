@@ -20,11 +20,11 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
         {/* Decorative elements with more wobble */}
         <motion.div
           className="absolute top-20 left-10"
-          animate={{ 
+          animate={{
             rotate: [0, 360],
             scale: [1, 1.1, 1],
           }}
-          transition={{ 
+          transition={{
             rotate: { duration: 20, repeat: Infinity, ease: "linear" },
             scale: { duration: 2, repeat: Infinity }
           }}
@@ -34,7 +34,7 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
 
         <motion.div
           className="absolute top-32 right-20"
-          animate={{ 
+          animate={{
             y: [0, -10, 0],
             rotate: [5, -5, 5],
           }}
@@ -42,10 +42,10 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
         >
           <SparkleDoodle size={24} animate={false} />
         </motion.div>
-        
+
         <motion.div
           className="absolute bottom-20 right-10"
-          animate={{ 
+          animate={{
             y: [0, -15, 0],
             rotate: [0, 8, -8, 0],
           }}
@@ -56,7 +56,7 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
 
         <motion.div
           className="absolute bottom-32 left-16"
-          animate={{ 
+          animate={{
             y: [0, -12, 0],
             x: [0, 5, 0],
           }}
@@ -73,7 +73,7 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
           className="mb-8"
         >
           <motion.div
-            animate={{ 
+            animate={{
               rotate: [0, 6, -6, 3, -3, 0],
               scale: [1, 1.08, 1, 1.05, 1]
             }}
@@ -90,7 +90,7 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
           transition={{ delay: 0.5 }}
         >
           <h2 className="text-3xl md:text-5xl text-foreground mb-6 font-crayon">
-            <TypewriterText 
+            <TypewriterText
               text="Okay, here it goes..."
               speed={60}
               delay={500}
@@ -117,11 +117,11 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
 
           <motion.button
             onClick={onContinue}
-            className="btn-wobbly btn-yes-wobbly px-8 py-4 text-2xl"
+            className="btn-wobbly btn-yes-wobbly px-8 py-4 text-2xl flex items-center justify-center gap-3 mx-auto"
             initial={{ opacity: 0, y: 20, rotate: -2 }}
             animate={{ opacity: 1, y: 0, rotate: -2 }}
             transition={{ delay: 5 }}
-            whileHover={{ 
+            whileHover={{
               scale: 1.08,
               rotate: [null, 3, -3, 2, -2, 0],
             }}
@@ -130,7 +130,7 @@ export const TeaseScene = ({ onContinue }: TeaseSceneProps) => {
               borderRadius: "55% 45% 50% 50% / 50% 50% 45% 55%",
             }}
           >
-            I'm ready! 💗
+            I'm ready! <HeartDoodle size={24} className="text-white" variant="filled" />
           </motion.button>
         </motion.div>
       </motion.div>

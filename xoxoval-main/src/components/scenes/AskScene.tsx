@@ -163,7 +163,9 @@ export const AskScene = ({ recipientName, onYes }: AskSceneProps) => {
               }}
             >
               <ValentineButton variant="yes" onClick={onYes}>
-                Yes! 💕
+                <span className="flex items-center gap-2">
+                  Yes! <HeartDoodle size={24} className="text-white" variant="filled" />
+                </span>
               </ValentineButton>
             </motion.div>
 

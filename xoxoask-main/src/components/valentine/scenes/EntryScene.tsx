@@ -20,7 +20,7 @@ export const EntryScene = ({ recipientName, onContinue }: EntrySceneProps) => {
       <PaperBackground>
         <section className="scene">
           <FloatingDoodles density="light" />
-          
+
           <motion.div
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -60,8 +60,8 @@ export const EntryScene = ({ recipientName, onContinue }: EntrySceneProps) => {
               className="text-xl md:text-2xl text-muted-foreground mb-10 font-crayon"
               style={{ transform: "rotate(1deg)" }}
             >
-              <Typewriter 
-                text="I have something special to tell you..." 
+              <Typewriter
+                text="I have something special to tell you..."
                 speed={75}
                 delay={1200}
               />
@@ -90,7 +90,7 @@ export const EntryScene = ({ recipientName, onContinue }: EntrySceneProps) => {
                   animate={{ x: [0, 5, 0], rotate: [0, 10, 0] }}
                   transition={{ repeat: Infinity, duration: 1.5 }}
                 >
-                  💌
+                  <EnvelopeDoodle size={20} className="text-foreground" />
                 </motion.span>
               </span>
             </motion.button>

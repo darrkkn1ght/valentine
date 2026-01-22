@@ -6,6 +6,8 @@ import { BuildUpScene } from "@/components/scenes/BuildUpScene";
 import { TeaseScene } from "@/components/scenes/TeaseScene";
 import { AskScene } from "@/components/scenes/AskScene";
 import { CelebrationScene } from "@/components/scenes/CelebrationScene";
+import { SongSelector } from "@/components/SongSelector";
+import MusicPlayer from "@/components/MusicPlayer";
 
 type Scene = "entry" | "buildup" | "tease" | "ask" | "celebration";
 
@@ -17,14 +19,20 @@ const CLIENT_CONFIG = {
 
 const Index = () => {
   const [currentScene, setCurrentScene] = useState<Scene>("entry");
+  const [selectedSong, setSelectedSong] = useState<string | null>(null);
   const { recipientName, senderName } = CLIENT_CONFIG;
 
   const goToNextScene = useCallback((nextScene: Scene) => {
     setCurrentScene(nextScene);
   }, []);
 
+  if (!selectedSong) {
+    return <SongSelector onSelect={setSelectedSong} />;
+  }
+
   return (
     <div className="min-h-screen relative overflow-hidden">
+      <MusicPlayer src={selectedSong} />
 
 
       {/* Background floating doodles - now on top of paper backgrounds */}

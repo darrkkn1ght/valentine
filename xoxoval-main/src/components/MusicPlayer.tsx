@@ -3,13 +3,23 @@ import { useEffect, useRef, useState } from "react";
 import { Music, Music2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const MusicPlayer = () => {
+interface MusicPlayerProps {
+    src?: string;
+}
+
+const MusicPlayer = ({ src = "/music/background-music.mp3" }: MusicPlayerProps) => {
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
 
     useEffect(() => {
         const audio = audioRef.current;
         if (!audio) return;
+
+        // Automatically play when src changes
+        if (src) {
+            audio.src = src;
+            audio.play().catch(console.error);
+        }
 
         // Sync state with actual audio status
         const updateState = () => setIsPlaying(!audio.paused);
@@ -43,7 +53,7 @@ const MusicPlayer = () => {
             audio.removeEventListener('play', updateState);
             audio.removeEventListener('pause', updateState);
         };
-    }, []);
+    }, [src]);
 
     const togglePlay = () => {
         if (!audioRef.current) return;
@@ -60,7 +70,7 @@ const MusicPlayer = () => {
             <audio
                 ref={audioRef}
                 loop
-                src="/music/background-music.mp3"
+                // src set via prop/effect
                 preload="auto"
             />
             <Button

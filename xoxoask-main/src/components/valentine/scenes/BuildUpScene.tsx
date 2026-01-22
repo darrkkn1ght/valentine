@@ -24,11 +24,11 @@ export const BuildUpScene = ({ recipientName, onContinue }: BuildUpSceneProps) =
     if (currentMessage < messages.length - 1) {
       setTimeout(() => {
         setCurrentMessage(prev => prev + 1);
-      }, 800);
+      }, 2000); // Increased readability pause
     } else {
       setTimeout(() => {
         setShowButton(true);
-      }, 500);
+      }, 1000);
     }
   };
 
@@ -36,13 +36,13 @@ export const BuildUpScene = ({ recipientName, onContinue }: BuildUpSceneProps) =
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0, y: -50 }}
-      transition={{ duration: 0.6 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      transition={{ duration: 1 }} // Smoother scene transition
     >
       <PaperBackground>
         <section className="scene">
           <FloatingDoodles density="medium" />
-          
+
           <div className="relative z-10 text-center max-w-2xl mx-auto px-4">
             {/* Hearts decoration */}
             <motion.div
@@ -62,21 +62,20 @@ export const BuildUpScene = ({ recipientName, onContinue }: BuildUpSceneProps) =
                 {messages.slice(0, currentMessage + 1).map((message, index) => (
                   <motion.p
                     key={index}
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0.5, y: -10, scale: 0.95 }}
-                    transition={{ duration: 0.5 }}
-                    className={`text-2xl md:text-4xl font-handwritten mb-6 crayon-text ${
-                      index === currentMessage 
-                        ? "text-foreground" 
-                        : "text-muted-foreground/60 scale-90"
-                    }`}
+                    exit={{ opacity: 0, y: -10 }} // Clean fade out
+                    transition={{ duration: 0.8 }} // Slower text fade
+                    className={`text-2xl md:text-4xl font-handwritten mb-6 crayon-text ${index === currentMessage
+                        ? "text-foreground"
+                        : "text-muted-foreground/60 scale-90 hidden" // Hide previous messages completely to prevent layout shifts/clutter if mode isn't handling it
+                      }`}
                     style={{ transform: `rotate(${(index % 2 === 0 ? -1 : 1) * 1.5}deg)` }}
                   >
                     {index === currentMessage ? (
-                      <Typewriter 
-                        text={message} 
-                        speed={75}
+                      <Typewriter
+                        text={message}
+                        speed={100} // Slower typing
                         onComplete={handleMessageComplete}
                       />
                     ) : (
@@ -90,7 +89,7 @@ export const BuildUpScene = ({ recipientName, onContinue }: BuildUpSceneProps) =
             {/* Continue Button */}
             <AnimatePresence>
               {showButton && (
-              <motion.button
+                <motion.button
                   initial={{ opacity: 0, y: 20, scale: 0.9 }}
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0 }}

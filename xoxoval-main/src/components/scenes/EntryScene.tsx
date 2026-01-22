@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { EnvelopeDoodle } from "../doodles/EnvelopeDoodle";
+import { HeartDoodle } from "../doodles/HeartDoodle";
 import { TypewriterText } from "../TypewriterText";
 import { PaperBackground } from "../PaperBackground";
 
@@ -33,7 +34,7 @@ export const EntryScene = ({ recipientName, onContinue }: EntrySceneProps) => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8 }}
         >
-          <TypewriterText 
+          <TypewriterText
             text={`Hey ${recipientName}...`}
             speed={80}
             delay={1000}
@@ -41,31 +42,33 @@ export const EntryScene = ({ recipientName, onContinue }: EntrySceneProps) => {
         </motion.h1>
 
         <motion.p
-          className="text-2xl md:text-3xl text-muted-foreground text-center mb-12 font-scribble"
+          className="text-2xl md:text-3xl text-muted-foreground text-center mb-12 font-scribble flex items-center justify-center gap-3"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 2.5 }}
         >
-          I have something special for you 💕
+          I have something special for you
+          <HeartDoodle size={24} className="inline-block text-heart-red" />
         </motion.p>
 
         <motion.button
           onClick={onContinue}
-          className="btn-wobbly btn-yes-wobbly px-8 py-4 text-2xl"
+          className="btn-wobbly btn-yes-wobbly px-8 py-4 text-2xl flex items-center gap-3"
           initial={{ opacity: 0, y: 20, rotate: -3 }}
           animate={{ opacity: 1, y: 0, rotate: -3 }}
           transition={{ delay: 3 }}
-          whileHover={{ 
-            scale: 1.08, 
+          whileHover={{
+            scale: 1.08,
             rotate: [null, -5, 5, -3, 3, 0],
-            y: -3 
+            y: -3
           }}
           whileTap={{ scale: 0.95, rotate: 0 }}
           style={{
             borderRadius: "45% 55% 50% 50% / 50% 50% 55% 45%",
           }}
         >
-          Open the letter ✉️
+          Open the letter
+          <EnvelopeDoodle size={24} className="text-foreground" isOpen={false} animate={false} />
         </motion.button>
       </motion.div>
     </PaperBackground>

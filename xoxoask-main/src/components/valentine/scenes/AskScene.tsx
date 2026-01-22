@@ -77,7 +77,7 @@ export const AskScene = ({ recipientName, senderName, onYes, onNo }: AskScenePro
                 className="text-xl text-muted-foreground font-crayon mt-6"
                 style={{ transform: "rotate(1deg)" }}
               >
-                ~ With all my love, {senderName} 💕
+                ~ With all my love, {senderName} <HeartDoodle size={20} className="inline-block text-primary align-middle" />
               </motion.p>
             </motion.div>
 
@@ -98,7 +98,9 @@ export const AskScene = ({ recipientName, senderName, onYes, onNo }: AskScenePro
                 transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
               >
                 <ValentineButton variant="yes" onClick={onYes}>
-                  Yes! 💖
+                  <span className="flex items-center gap-2">
+                    Yes! <HeartDoodle size={24} className="text-white fill-white" />
+                  </span>
                 </ValentineButton>
               </motion.div>
 
