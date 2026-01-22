@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
 import { FloatingDoodles } from "@/components/doodles/FloatingDoodles";
 import { EntryScene } from "@/components/scenes/EntryScene";
@@ -17,10 +17,26 @@ const CLIENT_CONFIG = {
   senderName: "Your Secret Admirer"
 };
 
+import { InteractiveBackground } from "@/components/effects/InteractiveBackground";
+import { CursorEffects } from "@/components/effects/CursorEffects";
+
 const Index = () => {
   const [currentScene, setCurrentScene] = useState<Scene>("entry");
   const [selectedSong, setSelectedSong] = useState<string | null>(null);
-  const { recipientName, senderName } = CLIENT_CONFIG;
+  const [started, setStarted] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
+  const [recipientName, setRecipientName] = useState("My Love");
+  const { senderName } = CLIENT_CONFIG;
+
+  // Handle URL parameters for custom names
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const name = params.get("to");
+    if (name) {
+      setRecipientName(name);
+      document.title = `For ${name} 💝`;
+    }
+  }, []);
 
   const goToNextScene = useCallback((nextScene: Scene) => {
     setCurrentScene(nextScene);
@@ -31,58 +47,61 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen relative overflow-hidden">
-      <MusicPlayer src={selectedSong} />
+    <InteractiveBackground>
+      <CursorEffects />
+      <div className="min-h-screen relative overflow-hidden">
+        <MusicPlayer src={selectedSong} />
 
 
-      {/* Background floating doodles - now on top of paper backgrounds */}
-      <FloatingDoodles
-        density={currentScene === "celebration" ? "heavy" : "medium"}
-      />
+        {/* Background floating doodles - now on top of paper backgrounds */}
+        <FloatingDoodles
+          density={currentScene === "celebration" ? "heavy" : "medium"}
+        />
 
-      {/* Scene content */}
-      <AnimatePresence mode="wait">
-        {currentScene === "entry" && (
-          <EntryScene
-            key="entry"
-            recipientName={recipientName}
-            onContinue={() => goToNextScene("buildup")}
-          />
-        )}
+        {/* Scene content */}
+        <AnimatePresence mode="wait">
+          {currentScene === "entry" && (
+            <EntryScene
+              key="entry"
+              recipientName={recipientName}
+              onContinue={() => goToNextScene("buildup")}
+            />
+          )}
 
-        {currentScene === "buildup" && (
-          <BuildUpScene
-            key="buildup"
-            recipientName={recipientName}
-            senderName={senderName}
-            onContinue={() => goToNextScene("tease")}
-          />
-        )}
+          {currentScene === "buildup" && (
+            <BuildUpScene
+              key="buildup"
+              recipientName={recipientName}
+              senderName={senderName}
+              onContinue={() => goToNextScene("tease")}
+            />
+          )}
 
-        {currentScene === "tease" && (
-          <TeaseScene
-            key="tease"
-            onContinue={() => goToNextScene("ask")}
-          />
-        )}
+          {currentScene === "tease" && (
+            <TeaseScene
+              key="tease"
+              onContinue={() => goToNextScene("ask")}
+            />
+          )}
 
-        {currentScene === "ask" && (
-          <AskScene
-            key="ask"
-            recipientName={recipientName}
-            onYes={() => goToNextScene("celebration")}
-          />
-        )}
+          {currentScene === "ask" && (
+            <AskScene
+              key="ask"
+              recipientName={recipientName}
+              onYes={() => goToNextScene("celebration")}
+            />
+          )}
 
-        {currentScene === "celebration" && (
-          <CelebrationScene
-            key="celebration"
-            recipientName={recipientName}
-            senderName={senderName}
-          />
-        )}
-      </AnimatePresence>
-    </div>
+          {currentScene === "celebration" && (
+            <CelebrationScene
+              key="celebration"
+              recipientName={recipientName}
+              senderName={senderName}
+            />
+          )}
+        </AnimatePresence>
+      </div>
+    </InteractiveBackground>
   );
 };
 

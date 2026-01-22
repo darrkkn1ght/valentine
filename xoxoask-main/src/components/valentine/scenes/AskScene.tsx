@@ -4,6 +4,7 @@ import { FloatingDoodles } from "@/components/doodles/FloatingDoodles";
 import { HeartDoodle } from "@/components/doodles/HeartDoodle";
 import { ValentineButton } from "../ValentineButton";
 import { Typewriter } from "@/components/effects/Typewriter";
+import { ScatteredText } from "@/components/effects/ScatteredText";
 import { PaperBackground } from "@/components/effects/PaperBackground";
 
 interface AskSceneProps {
@@ -59,15 +60,26 @@ export const AskScene = ({ recipientName, senderName, onYes, onNo }: AskScenePro
               className="mb-16"
             >
               <h2
-                className="text-4xl md:text-6xl lg:text-7xl font-handwritten text-love-gradient leading-tight mb-4 crayon-text"
+                className="text-4xl md:text-6xl lg:text-7xl leading-tight mb-4 flex flex-col items-center gap-4"
                 style={{ transform: "rotate(-1deg)" }}
               >
-                <Typewriter
-                  text={`${recipientName}, will you be my Valentine?`}
-                  speed={75}
-                  delay={800}
-                  onComplete={() => setQuestionRevealed(true)}
-                />
+                <div className="font-crayon text-love-red">
+                  <ScatteredText
+                    text={`${recipientName}, will you be my`}
+                    delay={0.8}
+                  />
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.5, filter: "blur(10px)" }}
+                  animate={{ opacity: 1, scale: 1.1, filter: "blur(0px)" }}
+                  transition={{ delay: 2.2, duration: 1.2, type: "spring" }}
+                  onAnimationComplete={() => setQuestionRevealed(true)}
+                  className="font-glamorous text-7xl md:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-pink-600 to-red-600 animate-pulse relative z-20 py-2"
+                  style={{ textShadow: "0 0 20px rgba(255, 100, 100, 0.3)" }}
+                >
+                  Valentine?
+                </motion.div>
               </h2>
 
               <motion.p

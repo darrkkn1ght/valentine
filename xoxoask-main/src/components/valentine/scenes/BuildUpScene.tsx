@@ -67,8 +67,8 @@ export const BuildUpScene = ({ recipientName, onContinue }: BuildUpSceneProps) =
                     exit={{ opacity: 0, y: -10 }} // Clean fade out
                     transition={{ duration: 0.8 }} // Slower text fade
                     className={`text-2xl md:text-4xl font-handwritten mb-6 crayon-text ${index === currentMessage
-                        ? "text-foreground"
-                        : "text-muted-foreground/60 scale-90 hidden" // Hide previous messages completely to prevent layout shifts/clutter if mode isn't handling it
+                      ? "text-foreground"
+                      : "text-muted-foreground/60 scale-90 hidden" // Hide previous messages completely to prevent layout shifts/clutter if mode isn't handling it
                       }`}
                     style={{ transform: `rotate(${(index % 2 === 0 ? -1 : 1) * 1.5}deg)` }}
                   >

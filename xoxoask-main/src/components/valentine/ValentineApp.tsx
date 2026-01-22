@@ -14,6 +14,9 @@ interface ValentineAppProps {
   senderName?: string;
 }
 
+import { InteractiveBackground } from "@/components/effects/InteractiveBackground";
+import { CursorEffects } from "@/components/effects/CursorEffects";
+
 export const ValentineApp = ({
   recipientName = "My Love",
   senderName = "Your Secret Admirer"
@@ -26,49 +29,52 @@ export const ValentineApp = ({
   };
 
   return (
-    <div className="relative min-h-screen overflow-hidden valentine-scrollbar">
-      <AnimatePresence mode="wait">
-        {currentScene === "entry" && (
-          <EntryScene
-            key="entry"
-            recipientName={recipientName}
-            onContinue={() => handleSceneTransition("buildup")}
-          />
-        )}
+    <InteractiveBackground>
+      <CursorEffects />
+      <div className="relative min-h-screen overflow-hidden valentine-scrollbar">
+        <AnimatePresence mode="wait">
+          {currentScene === "entry" && (
+            <EntryScene
+              key="entry"
+              recipientName={recipientName}
+              onContinue={() => handleSceneTransition("buildup")}
+            />
+          )}
 
-        {currentScene === "buildup" && (
-          <BuildUpScene
-            key="buildup"
-            recipientName={recipientName}
-            onContinue={() => handleSceneTransition("tease")}
-          />
-        )}
+          {currentScene === "buildup" && (
+            <BuildUpScene
+              key="buildup"
+              recipientName={recipientName}
+              onContinue={() => handleSceneTransition("tease")}
+            />
+          )}
 
-        {currentScene === "tease" && (
-          <TeaseScene
-            key="tease"
-            onContinue={() => handleSceneTransition("ask")}
-          />
-        )}
+          {currentScene === "tease" && (
+            <TeaseScene
+              key="tease"
+              onContinue={() => handleSceneTransition("ask")}
+            />
+          )}
 
-        {currentScene === "ask" && (
-          <AskScene
-            key="ask"
-            recipientName={recipientName}
-            senderName={senderName}
-            onYes={() => handleSceneTransition("celebration")}
-            onNo={() => handleSceneTransition("celebration")} // Even "no" leads to celebration after playful resistance
-          />
-        )}
+          {currentScene === "ask" && (
+            <AskScene
+              key="ask"
+              recipientName={recipientName}
+              senderName={senderName}
+              onYes={() => handleSceneTransition("celebration")}
+              onNo={() => handleSceneTransition("celebration")} // Even "no" leads to celebration after playful resistance
+            />
+          )}
 
-        {currentScene === "celebration" && (
-          <CelebrationScene
-            key="celebration"
-            recipientName={recipientName}
-            senderName={senderName}
-          />
-        )}
-      </AnimatePresence>
-    </div >
+          {currentScene === "celebration" && (
+            <CelebrationScene
+              key="celebration"
+              recipientName={recipientName}
+              senderName={senderName}
+            />
+          )}
+        </AnimatePresence>
+      </div>
+    </InteractiveBackground>
   );
 };

@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { TypewriterText } from "../TypewriterText";
+import { ScatteredText } from "@/components/effects/ScatteredText";
 import { ValentineButton } from "../ValentineButton";
 import { HeartDoodle } from "../doodles/HeartDoodle";
 import { PaperBackground } from "../PaperBackground";
@@ -106,19 +107,29 @@ export const AskScene = ({ recipientName, onYes }: AskSceneProps) => {
 
           {/* The big question with crayon style */}
           <motion.h1
-            className="text-4xl md:text-5xl lg:text-6xl text-foreground mb-8 leading-tight font-crayon"
+            className="text-4xl md:text-6xl lg:text-7xl mb-8 leading-tight flex flex-col items-center gap-4"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3 }}
             onAnimationComplete={() => setShowQuestion(true)}
           >
-            {showQuestion ? (
-              <TypewriterText
-                text={`${recipientName}, will you be my Valentine?`}
-                speed={60}
+            <div className="font-crayon text-foreground">
+              <ScatteredText
+                text={`${recipientName}, will you be my`}
+                delay={0.5}
               />
-            ) : (
-              <span className="opacity-0">{recipientName}, will you be my Valentine?</span>
+            </div>
+
+            {showQuestion && (
+              <motion.div
+                initial={{ opacity: 0, scale: 0.5, filter: "blur(10px)" }}
+                animate={{ opacity: 1, scale: 1.1, filter: "blur(0px)" }}
+                transition={{ delay: 1.5, duration: 1.2, type: "spring" }}
+                className="font-glamorous text-7xl md:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-pink-600 to-red-600 animate-pulse relative z-20 py-2"
+                style={{ textShadow: "0 0 20px rgba(255, 100, 100, 0.3)" }}
+              >
+                Valentine?
+              </motion.div>
             )}
           </motion.h1>
 

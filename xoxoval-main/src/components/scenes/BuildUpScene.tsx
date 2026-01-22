@@ -64,9 +64,9 @@ export const BuildUpScene = ({ recipientName, senderName, onContinue }: BuildUpS
                 delay: i * 0.25
               }}
             >
-              <HeartDoodle 
-                size={16 + i * 5} 
-                variant={i % 3 === 0 ? "filled" : i % 3 === 1 ? "outline" : "double"} 
+              <HeartDoodle
+                size={16 + i * 5}
+                variant={i % 3 === 0 ? "filled" : i % 3 === 1 ? "outline" : "double"}
                 animate={false}
               />
             </motion.div>
@@ -95,7 +95,7 @@ export const BuildUpScene = ({ recipientName, senderName, onContinue }: BuildUpS
               className="min-h-[120px] flex items-center justify-center"
             >
               <h2 className="text-3xl md:text-5xl text-foreground leading-relaxed font-crayon">
-                <TypewriterText 
+                <TypewriterText
                   text={messages[currentMessage]}
                   speed={50}
                 />
@@ -108,14 +108,13 @@ export const BuildUpScene = ({ recipientName, senderName, onContinue }: BuildUpS
             {messages.map((_, i) => (
               <motion.div
                 key={i}
-                className={`w-3 h-3 ${
-                  i <= currentMessage ? "bg-primary" : "bg-border"
-                }`}
+                className={`w-3 h-3 ${i <= currentMessage ? "bg-primary" : "bg-border"
+                  }`}
                 style={{
                   borderRadius: i % 2 === 0 ? "50% 50% 45% 55%" : "45% 55% 50% 50%",
                   transform: `rotate(${(i - 2) * 5}deg)`,
                 }}
-                animate={i === currentMessage ? { 
+                animate={i === currentMessage ? {
                   scale: [1, 1.4, 1],
                   rotate: [(i - 2) * 5, (i - 2) * 5 + 10, (i - 2) * 5]
                 } : {}}
@@ -131,8 +130,8 @@ export const BuildUpScene = ({ recipientName, senderName, onContinue }: BuildUpS
                 className="btn-wobbly btn-yes-wobbly px-8 py-4 text-2xl"
                 initial={{ opacity: 0, scale: 0.8, rotate: 3 }}
                 animate={{ opacity: 1, scale: 1, rotate: 3 }}
-                whileHover={{ 
-                  scale: 1.08, 
+                whileHover={{
+                  scale: 1.08,
                   rotate: [null, 0, 6, 3],
                 }}
                 whileTap={{ scale: 0.95 }}

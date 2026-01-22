@@ -14,8 +14,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        handwritten: ["Caveat", "Patrick Hand", "cursive"],
-        display: ["Caveat", "cursive"],
+        handwritten: ['Gloria Hallelujah', 'cursive'],
+        crayon: ['Gloria Hallelujah', 'cursive'],
+        scribble: ['Permanent Marker', 'cursive'],
+        glamorous: ['Great Vibes', 'cursive'],
+        display: ['Gloria Hallelujah', 'cursive'],
       },
       colors: {
         border: "hsl(var(--border))",
