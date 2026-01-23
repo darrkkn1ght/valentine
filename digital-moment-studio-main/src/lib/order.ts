@@ -39,19 +39,29 @@ export interface BankDetails {
 // Product Configuration
 export const VALENTINE_ASK_PRODUCT = {
   id: 'valentine-ask',
-  name: 'Valentine Ask Experience',
+  name: 'Valentine Ask (Interactive)',
   price: 8000,
   currency: 'NGN',
   description: 'A personalized digital experience to ask your special someone to be your Valentine.',
 };
+
+export const VALENTINE_CARD_PRODUCT = {
+  id: 'valentine-card',
+  name: 'Valentine Card (Classic)',
+  price: 8000,
+  currency: 'NGN',
+  description: 'A beautiful digital card with music and your personalized message.',
+};
+
+export const PRODUCTS = [VALENTINE_ASK_PRODUCT, VALENTINE_CARD_PRODUCT];
 
 // Bank Details for Payment
 export const BANK_DETAILS: BankDetails = {
   bankName: 'Moniepoint',
   accountNumber: '8129744447',
   accountName: 'Peter Tomiwa Adewale',
-  amount: VALENTINE_ASK_PRODUCT.price,
-  currency: VALENTINE_ASK_PRODUCT.currency,
+  amount: 8000, // Standard price for both
+  currency: 'NGN',
 };
 
 // WhatsApp Configuration
@@ -85,14 +95,17 @@ export function formatCurrency(amount: number, currency: string = 'NGN'): string
  * Creates an order object with referral attribution
  */
 export function createOrder(
-  formData: OrderFormData, 
-  referralCode: string | null
+  formData: OrderFormData,
+  referralCode: string | null,
+  productId: string = VALENTINE_ASK_PRODUCT.id
 ): OrderData {
+  const product = PRODUCTS.find(p => p.id === productId) || VALENTINE_ASK_PRODUCT;
+
   return {
     ...formData,
-    productName: VALENTINE_ASK_PRODUCT.name,
-    productPrice: VALENTINE_ASK_PRODUCT.price,
-    currency: VALENTINE_ASK_PRODUCT.currency,
+    productName: product.name,
+    productPrice: product.price,
+    currency: product.currency,
     referralCode,
     source: referralCode ? 'referral' : 'direct',
     timestamp: new Date().toISOString(),

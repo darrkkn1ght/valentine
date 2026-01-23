@@ -32,11 +32,11 @@ const ValentineAsk = () => {
               <p className="text-xs uppercase tracking-widest text-accent mb-4">
                 Digital Experience
               </p>
-              
+
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-foreground leading-[1.1] mb-6">
                 Valentine Ask
               </h1>
-              
+
               <p className="text-lg text-muted-foreground max-w-md mb-8 leading-relaxed">
                 A guided digital experience designed to help you ask an important question in a meaningful, memorable way. Not a template—an experience.
               </p>
@@ -47,9 +47,9 @@ const ValentineAsk = () => {
                 </span>
                 <span className="text-sm text-muted-foreground">one-time</span>
               </div>
-              
+
               <Button variant="cta" size="xl" asChild>
-                <Link to="/order">
+                <Link to="/order?product=valentine-ask">
                   Create My Moment Now
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -57,9 +57,9 @@ const ValentineAsk = () => {
             </div>
 
             <div className="animate-fade-up delay-200">
-              <img 
-                src={valentineProduct} 
-                alt="Valentine Ask Experience Preview" 
+              <img
+                src={valentineProduct}
+                alt="Valentine Ask Experience Preview"
                 className="w-full max-w-md mx-auto lg:ml-auto rounded-lg\"
               />
             </div>
@@ -72,13 +72,13 @@ const ValentineAsk = () => {
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <img 
-                src={momentHands} 
-                alt="Experiencing a digital moment" 
+              <img
+                src={momentHands}
+                alt="Experiencing a digital moment"
                 className="w-full rounded-lg"
               />
             </div>
-            
+
             <div>
               <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
                 The Experience
@@ -173,7 +173,7 @@ const ValentineAsk = () => {
                 Create a moment that matters. Order now and receive your personalized experience within 24 hours.
               </p>
               <Button variant="cta" size="lg" asChild>
-                <Link to="/order">
+                <Link to="/order?product=valentine-ask">
                   Order My Personal Experience
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
