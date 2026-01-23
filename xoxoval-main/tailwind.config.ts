@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import tailwindAnimate from "tailwindcss-animate";
 
 export default {
   darkMode: ["class"],
@@ -14,11 +15,11 @@ export default {
     },
     extend: {
       fontFamily: {
-        handwritten: ['Gloria Hallelujah', 'cursive'],
-        crayon: ['Gloria Hallelujah', 'cursive'],
-        scribble: ['Permanent Marker', 'cursive'],
-        glamorous: ['Great Vibes', 'cursive'],
-        display: ['Gloria Hallelujah', 'cursive'],
+        handwritten: ['Caveat', 'cursive'],
+        crayon: ['Caveat', 'cursive'],
+        scribble: ['Caveat', 'cursive'],
+        glamorous: ['Playfair Display', 'serif'],
+        display: ['Caveat', 'cursive'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -152,5 +153,5 @@ export default {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [tailwindAnimate],
 } satisfies Config;

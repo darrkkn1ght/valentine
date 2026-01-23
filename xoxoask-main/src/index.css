@@ -4,71 +4,71 @@
 
 /* Valentine Cozy Hand-Drawn Design System */
 /* Using Architects Daughter for more crayon-like feel, Caveat for headings */
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Caveat:wght@400;500;600;700&family=Patrick+Hand&display=swap');
+/* Fonts loaded in index.html */
 
 @layer base {
   :root {
     /* Paper & Background Tones */
     --background: 35 35% 96%;
     --foreground: 15 25% 20%;
-    
+
     /* Cream Paper Variants */
     --paper: 40 40% 94%;
     --paper-alt: 30 30% 92%;
     --paper-celebration: 45 50% 95%;
-    
+
     /* Primary - Soft Rose */
     --primary: 350 70% 65%;
     --primary-foreground: 0 0% 100%;
     --primary-soft: 350 60% 85%;
     --primary-deep: 350 75% 50%;
-    
+
     /* Secondary - Lavender Dreams */
     --secondary: 280 40% 88%;
     --secondary-foreground: 280 30% 25%;
-    
+
     /* Accent - Warm Coral */
     --accent: 15 80% 65%;
     --accent-foreground: 0 0% 100%;
-    
+
     /* Muted - Cozy Gray */
     --muted: 30 15% 90%;
     --muted-foreground: 20 10% 45%;
-    
+
     /* Card & Popover */
     --card: 38 40% 97%;
     --card-foreground: 15 25% 20%;
     --popover: 38 40% 97%;
     --popover-foreground: 15 25% 20%;
-    
+
     /* Destructive */
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    
+
     /* Borders & Inputs */
     --border: 30 25% 85%;
     --input: 30 25% 85%;
     --ring: 350 70% 65%;
-    
+
     /* Special Colors */
     --heart: 350 80% 60%;
     --sparkle: 45 90% 65%;
     --star: 45 85% 70%;
     --love-red: 0 75% 55%;
     --blush: 350 50% 90%;
-    
+
     /* Shadows & Effects */
     --shadow-soft: 0 4px 20px -4px hsl(350 30% 50% / 0.15);
     --shadow-float: 0 8px 30px -8px hsl(350 40% 40% / 0.2);
     --shadow-glow: 0 0 40px -10px hsl(350 70% 65% / 0.4);
-    
+
     /* Gradients */
     --gradient-paper: linear-gradient(135deg, hsl(40 40% 96%) 0%, hsl(35 35% 93%) 100%);
     --gradient-love: linear-gradient(135deg, hsl(350 70% 65%) 0%, hsl(15 80% 65%) 100%);
     --gradient-sparkle: linear-gradient(135deg, hsl(45 90% 70%) 0%, hsl(350 60% 75%) 100%);
-    
+
     --radius: 1rem;
-    
+
     /* Sidebar (keeping for compatibility) */
     --sidebar-background: 38 40% 97%;
     --sidebar-foreground: 15 25% 20%;
@@ -83,43 +83,43 @@
   .dark {
     --background: 20 20% 10%;
     --foreground: 35 30% 90%;
-    
+
     --paper: 20 15% 15%;
     --paper-alt: 25 15% 12%;
     --paper-celebration: 30 20% 18%;
-    
+
     --primary: 350 65% 60%;
     --primary-foreground: 0 0% 100%;
     --primary-soft: 350 40% 30%;
     --primary-deep: 350 70% 50%;
-    
+
     --secondary: 280 30% 25%;
     --secondary-foreground: 280 40% 85%;
-    
+
     --accent: 15 70% 55%;
     --accent-foreground: 0 0% 100%;
-    
+
     --muted: 20 15% 20%;
     --muted-foreground: 30 15% 60%;
-    
+
     --card: 20 18% 14%;
     --card-foreground: 35 30% 90%;
     --popover: 20 18% 14%;
     --popover-foreground: 35 30% 90%;
-    
+
     --destructive: 0 70% 45%;
     --destructive-foreground: 0 0% 100%;
-    
+
     --border: 20 15% 25%;
     --input: 20 15% 25%;
     --ring: 350 65% 60%;
-    
+
     --heart: 350 75% 55%;
     --sparkle: 45 80% 60%;
     --star: 45 75% 65%;
     --love-red: 0 70% 50%;
     --blush: 350 30% 25%;
-    
+
     --sidebar-background: 20 18% 14%;
     --sidebar-foreground: 35 30% 90%;
     --sidebar-primary: 350 65% 60%;
@@ -141,121 +141,127 @@
     font-family: 'Patrick Hand', 'Architects Daughter', cursive;
     letter-spacing: 0.02em;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: 'Caveat', cursive;
     letter-spacing: 0.01em;
   }
-  
+
   /* Crayon-like text effect */
   .crayon-text {
-    text-shadow: 
+    text-shadow:
       1px 1px 0 hsl(var(--primary) / 0.1),
       -0.5px -0.5px 0 hsl(var(--background) / 0.5);
     letter-spacing: 0.03em;
   }
-  
+
   /* Wobbly text for playful feel */
   .wobbly-text {
     display: inline-block;
   }
-  
+
   .wobbly-text span {
     display: inline-block;
     animation: wobble 3s ease-in-out infinite;
   }
-  
+
   .wobbly-text span:nth-child(odd) {
     animation-delay: -0.5s;
   }
 }
 
 @layer components {
+
   /* Paper Background Texture */
   .paper-texture {
     background-color: hsl(var(--paper));
-    background-image: 
+    background-image:
       radial-gradient(ellipse at 20% 30%, hsl(var(--primary-soft) / 0.1) 0%, transparent 50%),
       radial-gradient(ellipse at 80% 70%, hsl(var(--secondary) / 0.15) 0%, transparent 50%);
   }
-  
+
   /* Hand-drawn Border Effect */
   .hand-drawn-border {
     border: 2px solid hsl(var(--border));
     border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
     box-shadow: var(--shadow-soft);
   }
-  
+
   /* Floating Animation Container */
   .float-container {
     animation: float 6s ease-in-out infinite;
   }
-  
+
   /* Wiggle Animation */
   .wiggle {
     animation: wiggle 3s ease-in-out infinite;
   }
-  
+
   /* Pop Animation */
   .pop-in {
     animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   }
-  
+
   /* Typewriter Cursor */
   .typewriter-cursor::after {
     content: '|';
     animation: blink 1s step-end infinite;
     color: hsl(var(--primary));
   }
-  
+
   /* Love Button Styles */
   .love-button {
     @apply relative overflow-hidden transition-all duration-300;
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
     box-shadow: 0 4px 15px -3px hsl(var(--primary) / 0.4);
   }
-  
+
   .love-button:hover {
     transform: translateY(-2px) scale(1.02);
     box-shadow: 0 8px 25px -5px hsl(var(--primary) / 0.5);
   }
-  
+
   .love-button:active {
     transform: translateY(0) scale(0.98);
   }
-  
+
   /* Playful Button (No response) */
   .playful-button {
     @apply relative transition-all duration-200;
     background: hsl(var(--muted));
     color: hsl(var(--muted-foreground));
   }
-  
+
   .playful-button:hover {
     animation: shake 0.5s ease-in-out;
   }
-  
+
   /* Celebration Confetti Container */
   .confetti-container {
     @apply fixed inset-0 pointer-events-none overflow-hidden z-50;
   }
-  
+
   /* Scene Container */
   .scene {
     @apply min-h-screen flex flex-col items-center justify-center p-6 relative overflow-hidden;
   }
-  
+
   /* Doodle Styles */
   .doodle {
     @apply absolute pointer-events-none;
     filter: drop-shadow(0 2px 4px hsl(var(--primary) / 0.2));
   }
-  
+
   /* Text Reveal Animation */
   .text-reveal {
     @apply overflow-hidden;
   }
-  
+
   .text-reveal span {
     @apply inline-block;
     animation: slideUp 0.5s ease-out forwards;
@@ -265,25 +271,26 @@
 }
 
 @layer utilities {
+
   /* Custom Scrollbar */
   .valentine-scrollbar::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   .valentine-scrollbar::-webkit-scrollbar-track {
     background: hsl(var(--muted));
     border-radius: 4px;
   }
-  
+
   .valentine-scrollbar::-webkit-scrollbar-thumb {
     background: hsl(var(--primary-soft));
     border-radius: 4px;
   }
-  
+
   .valentine-scrollbar::-webkit-scrollbar-thumb:hover {
     background: hsl(var(--primary));
   }
-  
+
   /* Gradient Text */
   .text-love-gradient {
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
@@ -291,7 +298,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
-  
+
   /* Glass Effect */
   .glass {
     background: hsl(var(--card) / 0.8);
@@ -302,24 +309,32 @@
 
 /* Keyframe Animations */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0) rotate(0deg);
   }
+
   25% {
     transform: translateY(-10px) rotate(2deg);
   }
+
   50% {
     transform: translateY(-5px) rotate(-1deg);
   }
+
   75% {
     transform: translateY(-15px) rotate(1deg);
   }
 }
 
 @keyframes wiggle {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(-3deg);
   }
+
   50% {
     transform: rotate(3deg);
   }
@@ -330,9 +345,11 @@
     opacity: 0;
     transform: scale(0.5);
   }
+
   70% {
     transform: scale(1.1);
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -340,22 +357,37 @@
 }
 
 @keyframes blink {
-  0%, 50% {
+
+  0%,
+  50% {
     opacity: 1;
   }
-  51%, 100% {
+
+  51%,
+  100% {
     opacity: 0;
   }
 }
 
 @keyframes shake {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateX(0);
   }
-  10%, 30%, 50%, 70%, 90% {
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
     transform: translateX(-5px);
   }
-  20%, 40%, 60%, 80% {
+
+  20%,
+  40%,
+  60%,
+  80% {
     transform: translateX(5px);
   }
 }
@@ -372,6 +404,7 @@
     transform: translateY(-100vh) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translateY(100vh) rotate(720deg);
     opacity: 0;
@@ -379,25 +412,33 @@
 }
 
 @keyframes heartbeat {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   25% {
     transform: scale(1.1);
   }
+
   50% {
     transform: scale(1);
   }
+
   75% {
     transform: scale(1.15);
   }
 }
 
 @keyframes sparkle {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.3;
     transform: scale(0.8);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.2);
@@ -409,6 +450,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
