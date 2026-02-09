@@ -1,0 +1,6 @@
+services:
+  - use: web
+    name: xoxoval-mide
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
