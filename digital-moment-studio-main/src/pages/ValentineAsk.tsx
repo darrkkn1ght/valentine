@@ -25,7 +25,7 @@ const ValentineAsk = () => {
   return (
     <PageLayout>
       {/* Hero */}
-      <section className="pt-24 pb-16 md:pt-32 md:pb-24">
+      <section className="section-padding">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="animate-fade-up">
@@ -42,7 +42,7 @@ const ValentineAsk = () => {
               </p>
 
               <div className="flex items-baseline gap-3 mb-8">
-                <span className="text-3xl font-serif text-foreground">
+                <span className="text-4xl md:text-5xl font-serif font-medium text-foreground">
                   {formatCurrency(VALENTINE_ASK_PRODUCT.price)}
                 </span>
                 <span className="text-sm text-muted-foreground">one-time</span>
@@ -68,7 +68,7 @@ const ValentineAsk = () => {
       </section>
 
       {/* The Experience */}
-      <section className="py-20 bg-secondary">
+      <section className="section-padding bg-secondary">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -98,7 +98,7 @@ const ValentineAsk = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20">
+      <section className="section-padding">
         <div className="container mx-auto px-6">
           <div className="max-w-xl mb-12">
             <p className="text-xs uppercase tracking-widest text-muted-foreground mb-3">
@@ -111,7 +111,7 @@ const ValentineAsk = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-3">
-              <span className="inline-block text-xs font-medium text-accent uppercase tracking-wider">01</span>
+              <span className="inline-block text-xl font-serif text-accent mb-1">01</span>
               <h3 className="text-lg font-medium text-foreground">Order</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Submit your details and complete payment via bank transfer. We confirm within 24 hours.
@@ -119,7 +119,7 @@ const ValentineAsk = () => {
             </div>
 
             <div className="space-y-3">
-              <span className="inline-block text-xs font-medium text-accent uppercase tracking-wider">02</span>
+              <span className="inline-block text-xl font-serif text-accent mb-1">02</span>
               <h3 className="text-lg font-medium text-foreground">We Create</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Our studio crafts your personalized experience with your message and details.
@@ -127,7 +127,7 @@ const ValentineAsk = () => {
             </div>
 
             <div className="space-y-3">
-              <span className="inline-block text-xs font-medium text-accent uppercase tracking-wider">03</span>
+              <span className="inline-block text-xl font-serif text-accent mb-1">03</span>
               <h3 className="text-lg font-medium text-foreground">Share</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 Receive a private link to share with your recipient. Watch the moment unfold.
@@ -138,7 +138,7 @@ const ValentineAsk = () => {
       </section>
 
       {/* Features */}
-      <section className="py-20 bg-secondary">
+      <section className="section-padding bg-secondary">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>

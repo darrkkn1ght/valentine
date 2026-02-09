@@ -17,7 +17,7 @@ const AdminDashboard = () => {
   const { isAuthenticated, isLoading: authLoading, logout } = useAdminAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
-  
+
   const [orders, setOrders] = useState<Order[]>([]);
   const [referrals, setReferrals] = useState<ReferralCode[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -43,7 +43,7 @@ const AdminDashboard = () => {
       const { data: refData } = await supabase
         .from('referral_codes')
         .select('*');
-      
+
       setReferrals(refData || []);
     } catch (error) {
       console.error('Error fetching data:', error);
@@ -211,12 +211,15 @@ const AdminDashboard = () => {
                     {orders.map((order) => (
                       <div
                         key={order.id}
-                        className="flex flex-col md:flex-row md:items-center justify-between p-4 border border-border rounded-lg gap-4"
+                        className="flex flex-col md:flex-row md:items-center justify-between p-4 border border-border rounded-lg gap-4 hover:bg-muted/40 transition-colors"
                       >
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-1">
-                            <span className="font-medium">{order.full_name}</span>
-                            <Badge variant={order.status === 'confirmed' ? 'default' : 'secondary'}>
+                            <span className="font-medium text-foreground">{order.full_name}</span>
+                            <Badge
+                              variant={order.status === 'confirmed' ? 'default' : 'secondary'}
+                              className={order.status === 'confirmed' ? 'bg-green-600 hover:bg-green-700' : 'bg-amber-100 text-amber-800 hover:bg-amber-200'}
+                            >
                               {order.status}
                             </Badge>
                             {order.referral_code && (
@@ -266,7 +269,7 @@ const AdminDashboard = () => {
                     {referrals.map((ref) => (
                       <div
                         key={ref.id}
-                        className="flex flex-col md:flex-row md:items-center justify-between p-4 border border-border rounded-lg gap-4"
+                        className="flex flex-col md:flex-row md:items-center justify-between p-4 border border-border rounded-lg gap-4 hover:bg-muted/40 transition-colors"
                       >
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-1">

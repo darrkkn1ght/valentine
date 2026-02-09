@@ -41,8 +41,8 @@ const Index = () => {
   return (
     <PageLayout>
       {/* Hero Section */}
-      <section 
-        className="relative pt-32 pb-20 md:pt-40 md:pb-32 min-h-[85vh] flex items-center"
+      <section
+        className="relative pt-32 pb-20 md:pt-48 md:pb-32 min-h-[85vh] flex items-center"
         style={{
           backgroundImage: `url(${heroBg})`,
           backgroundSize: 'cover',
@@ -57,21 +57,21 @@ const Index = () => {
                 Digital Experience Studio
               </p>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={100}>
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.1] mb-6">
                 Ask Them In A Way
                 <br />
-                <span className="text-accent-gradient">They'll Never Forget</span>
+                <span className="text-accent-gradient drop-shadow-sm">They'll Never Forget</span>
               </h1>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={200}>
               <p className="text-lg md:text-xl text-muted-foreground max-w-lg mb-10">
                 A personalized digital experience with music, animations, and your message. Delivered in 24 hours.
               </p>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={300}>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="cta" size="lg" asChild>
@@ -87,7 +87,7 @@ const Index = () => {
                 </Button>
               </div>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={400}>
               <p className="text-xs text-muted-foreground mt-8">
                 ✓ 24-Hour Delivery | ✓ Fully Personalized | ✓ 24/7 Support
@@ -98,7 +98,7 @@ const Index = () => {
       </section>
 
       {/* Trust Signals */}
-      <section className="py-12 md:py-16 border-b border-border">
+      <section className="section-padding-tight border-b border-border bg-accent/5">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
             <ScrollReveal animation="fade-up">
@@ -108,7 +108,7 @@ const Index = () => {
                 <p className="text-xs text-muted-foreground mt-1">Bank transfer verified</p>
               </div>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={50}>
               <div>
                 <Clock className="w-6 h-6 text-accent mx-auto mb-2" />
@@ -116,7 +116,7 @@ const Index = () => {
                 <p className="text-xs text-muted-foreground mt-1">Fast turnaround</p>
               </div>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={100}>
               <div>
                 <Zap className="w-6 h-6 text-accent mx-auto mb-2" />
@@ -124,7 +124,7 @@ const Index = () => {
                 <p className="text-xs text-muted-foreground mt-1">Share immediately</p>
               </div>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={150}>
               <div>
                 <Users className="w-6 h-6 text-accent mx-auto mb-2" />
@@ -145,7 +145,7 @@ const Index = () => {
       </section>
 
       {/* Custom Experiences CTA */}
-      <section className="py-16 md:py-20 bg-accent/5 border-y border-border">
+      <section className="section-padding-tight bg-accent/5 border-y border-border">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
@@ -174,28 +174,28 @@ const Index = () => {
 
               <ScrollReveal animation="fade-right">
                 <div className="space-y-4">
-                  <div className="p-4 bg-background rounded border border-border flex items-start gap-3">
+                  <div className="p-4 bg-background rounded-lg border border-border flex items-start gap-3 hover-lift transition-all">
                     <Heart className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-medium text-foreground mb-1">Engagement</p>
                       <p className="text-xs text-muted-foreground">Personalized proposal experience</p>
                     </div>
                   </div>
-                  <div className="p-4 bg-background rounded border border-border flex items-start gap-3">
+                  <div className="p-4 bg-background rounded-lg border border-border flex items-start gap-3 hover-lift transition-all">
                     <Cake className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-medium text-foreground mb-1">Birthday</p>
                       <p className="text-xs text-muted-foreground">Special celebration moments</p>
                     </div>
                   </div>
-                  <div className="p-4 bg-background rounded border border-border flex items-start gap-3">
+                  <div className="p-4 bg-background rounded-lg border border-border flex items-start gap-3 hover-lift transition-all">
                     <Briefcase className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-medium text-foreground mb-1">Business</p>
                       <p className="text-xs text-muted-foreground">Corporate announcements & launches</p>
                     </div>
                   </div>
-                  <div className="p-4 bg-background rounded border border-border flex items-start gap-3">
+                  <div className="p-4 bg-background rounded-lg border border-border flex items-start gap-3 hover-lift transition-all">
                     <Star className="w-5 h-5 text-accent flex-shrink-0 mt-1" />
                     <div>
                       <p className="font-medium text-foreground mb-1">Custom</p>
@@ -210,7 +210,7 @@ const Index = () => {
       </section>
 
       {/* What We Do */}
-      <section className="py-20 md:py-28">
+      <section className="section-padding">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -229,7 +229,7 @@ const Index = () => {
                   Personalized, beautifully designed, delivered in 24 hours. Made with real care.
                 </p>
               </ScrollReveal>
-              
+
               {/* Benefits */}
               <ScrollReveal animation="fade-up" delay={300}>
                 <div className="space-y-4">
@@ -264,12 +264,12 @@ const Index = () => {
                 </div>
               </ScrollReveal>
             </div>
-            
+
             <ScrollReveal animation="fade-left" delay={200}>
               <div className="relative">
-                <img 
-                  src={momentHands} 
-                  alt="Person experiencing a meaningful digital moment" 
+                <img
+                  src={momentHands}
+                  alt="Person experiencing a meaningful digital moment"
                   className="w-full rounded-lg"
                 />
               </div>
@@ -279,7 +279,7 @@ const Index = () => {
       </section>
 
       {/* Product Preview */}
-      <section className="py-20 md:py-28 bg-secondary">
+      <section className="section-padding bg-secondary">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto mb-16 text-center">
             <ScrollReveal animation="fade-up">
@@ -324,7 +324,7 @@ const Index = () => {
                     Beautiful background music sets the mood from the moment they open the link
                   </p>
                 </div>
-                
+
                 <div>
                   <h3 className="font-medium text-foreground mb-2 flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-accent" /> Stunning Animations
@@ -333,7 +333,7 @@ const Index = () => {
                     Smooth transitions, floating elements, and engaging visual effects throughout
                   </p>
                 </div>
-                
+
                 <div>
                   <h3 className="font-medium text-foreground mb-2 flex items-center gap-2">
                     <Mail className="w-4 h-4 text-accent" /> Your Message
@@ -358,7 +358,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 md:py-28 bg-accent/5">
+      <section className="section-padding bg-accent/5">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto mb-16 text-center">
             <ScrollReveal animation="fade-up">
@@ -391,12 +391,12 @@ const Index = () => {
                 rating: 5
               }
             ].map((testimonial, index) => (
-              <ScrollReveal 
+              <ScrollReveal
                 key={index}
-                animation="fade-up" 
+                animation="fade-up"
                 delay={index * 100}
               >
-                <div className="border border-border rounded-lg p-8 bg-background hover:border-accent/50 transition-colors">
+                <div className="border border-border rounded-lg p-8 bg-background hover-lift transition-all h-full">
                   <div className="flex items-center gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
                       <span key={i} className="text-accent text-lg">★</span>
@@ -416,13 +416,13 @@ const Index = () => {
       </section>
 
       {/* Featured Product */}
-      <section className="py-20 md:py-28 bg-secondary">
+      <section className="section-padding bg-secondary">
         <div className="container mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <ScrollReveal animation="fade-right" className="order-2 lg:order-1">
-              <img 
-                src={valentineProduct} 
-                alt="Valentine Ask Experience" 
+              <img
+                src={valentineProduct}
+                alt="Valentine Ask Experience"
                 className="w-full max-w-sm mx-auto lg:mx-0 rounded-lg\"
               />
             </ScrollReveal>
@@ -443,14 +443,14 @@ const Index = () => {
                   Personalized, animated experience with music and your message. Ready in 24 hours.
                 </p>
               </ScrollReveal>
-              
+
               <ScrollReveal animation="fade-up" delay={300}>
                 <div className="flex items-center gap-6 mb-8">
                   <span className="text-2xl font-serif text-foreground">₦8,000</span>
                   <span className="text-sm text-muted-foreground">One-time</span>
                 </div>
               </ScrollReveal>
-              
+
               <ScrollReveal animation="fade-up" delay={400}>
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button variant="default" size="lg" asChild>
@@ -471,19 +471,19 @@ const Index = () => {
       </section>
 
       {/* Referral Bonus */}
-      <section className="py-20 md:py-28">
+      <section className="section-padding">
         <div className="container mx-auto px-6">
           <div className="max-w-3xl mx-auto bg-accent/10 border-2 border-accent/30 rounded-lg p-8 md:p-12 text-center">
             <ScrollReveal animation="fade-up">
               <Gift className="w-10 h-10 text-accent mx-auto mb-4" />
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={100}>
               <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-4">
                 Share & Earn Rewards
               </h2>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={200}>
               <p className="text-lg text-muted-foreground mb-8">
                 Know someone who needs this? Share your unique referral link and earn ₦1,000 credit for every person who orders. No limits!
@@ -508,11 +508,9 @@ const Index = () => {
             </ScrollReveal>
 
             <ScrollReveal animation="fade-up" delay={400}>
-              <Button variant="cta" size="lg" asChild>
-                <Link to="/order">
-                  Get Your Referral Link
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
+              <Button variant="cta" size="lg" onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=Hello, I'd like to join the affiliate program and get a referral link.`, '_blank')}>
+                Get Your Referral Link
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </ScrollReveal>
           </div>
@@ -520,8 +518,8 @@ const Index = () => {
       </section>
 
       {/* About / Philosophy */}
-      <section 
-        className="relative py-20 md:py-28"
+      <section
+        className="relative section-padding"
         style={{
           backgroundImage: `url(${aboutBg})`,
           backgroundSize: 'cover',
@@ -556,19 +554,19 @@ const Index = () => {
       </section>
 
       {/* Email Capture / Newsletter */}
-      <section className="py-20 md:py-28 bg-secondary">
+      <section className="section-padding bg-secondary">
         <div className="container mx-auto px-6">
           <div className="max-w-2xl mx-auto">
             <ScrollReveal animation="fade-up">
               <Mail className="w-10 h-10 text-accent mx-auto mb-4" />
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={100}>
               <h2 className="font-serif text-3xl md:text-4xl text-foreground text-center mb-4">
                 Get Early Launch Updates
               </h2>
             </ScrollReveal>
-            
+
             <ScrollReveal animation="fade-up" delay={200}>
               <p className="text-muted-foreground text-center mb-8">
                 Be the first to know about new experience types, special promotions, and exclusive features. Join our community.
@@ -585,15 +583,15 @@ const Index = () => {
                   required
                   className="flex-1"
                 />
-                <Button 
-                  type="submit" 
-                  variant="cta" 
+                <Button
+                  type="submit"
+                  variant="cta"
                   className="whitespace-nowrap"
                 >
                   Subscribe
                 </Button>
               </form>
-              
+
               {subscribed && (
                 <p className="text-center text-sm text-accent mt-4">
                   ✓ Thanks for subscribing! Check your email for confirmation.
@@ -611,7 +609,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 border-t border-border">
+      <section className="section-padding-tight border-t border-border">
         <div className="container mx-auto px-6 text-center">
           <ScrollReveal animation="scale">
             <h2 className="font-serif text-2xl md:text-3xl text-foreground mb-6">
